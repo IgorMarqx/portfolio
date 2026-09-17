@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tema escuro é o padrão; o claro entra por data-theme="light" no <html>. */
+:root {
+  color-scheme: dark;
+  --c-base: 5 7 10;
+  --c-surface: 10 13 18;
+  --c-panel: 13 17 23;
+  --c-line: 27 34 44;
+  --c-accent: 59 158 255;
+  --c-muted: 125 136 150;
+  --c-fg: 230 237 243;
+  --c-grade: 59 158 255;
+  --op-grade: 0.05;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --c-base: 246 247 250;
+  --c-surface: 255 255 255;
+  --c-panel: 240 243 247;
+  --c-line: 216 222 230;
+  --c-accent: 13 102 208;
+  --c-muted: 88 97 110;
+  --c-fg: 14 20 27;
+  --c-grade: 13 102 208;
+  --op-grade: 0.07;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: rgb(var(--c-base));
+  color: rgb(var(--c-fg));
+  /* Nada de rolagem lateral da página: o que rola de lado é o trilho, não o site. */
+  overflow-x: hidden;
+}
+
+@layer components {
+  /* Malha de fundo do terminal: linhas finas atrás de todo o conteúdo. */
+  .grade {
+    background-image:
+      linear-gradient(
+        to right,
+        rgb(var(--c-grade) / var(--op-grade)) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        rgb(var(--c-grade) / var(--op-grade)) 1px,
+        transparent 1px
+      );
+    background-size: 48px 48px;
+  }
+
+  .painel {
+    @apply border border-line bg-surface;
+  }
+
+  /* Trilho do carrossel: rola, mas sem a barra cortando o layout. */
+  .sem-barra {
+    scrollbar-width: none;
+  }
+
+  .sem-barra::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Preenche o indicador do cartão atual até a virada — quem olha sabe que vai passar. */
+  .animar-progresso {
+    width: 0;
+    animation-name: progresso;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+
+  .rotulo {
+    @apply text-[11px] uppercase tracking-[0.2em] text-muted;
+  }
+}
+
+@keyframes progresso {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Sem animação, o indicador atual fica cheio: ele ainda precisa marcar a posição. */
+@media (prefers-reduced-motion: reduce) {
+  .animar-progresso {
+    width: 100%;
+    animation: none;
+  }
+}
