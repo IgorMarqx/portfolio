@@ -1,3 +1,4 @@
+import { MiniaturaVideo } from "@/components/MiniaturaVideo";
 import type { Projeto } from "@/data/conteudo";
 
 type Props = {
@@ -32,9 +33,15 @@ export function CartaoProjeto({
         {projeto.descricao}
       </p>
 
-      <div className="mt-6 flex h-28 items-center justify-center border border-line bg-panel text-[11px] tracking-[0.2em] text-muted">
-        {projeto.visual}
-      </div>
+      {projeto.miniatura ? (
+        <div className="mt-6 h-28 border border-line bg-panel">
+          <MiniaturaVideo src={projeto.miniatura} rotulo={projeto.visual} />
+        </div>
+      ) : (
+        <div className="mt-6 flex h-28 items-center justify-center border border-line bg-panel text-[11px] tracking-[0.2em] text-muted">
+          {projeto.visual}
+        </div>
+      )}
 
       <p className="mt-6 border-l border-accent/40 pl-3 text-xs leading-relaxed text-muted">
         {projeto.impacto}
@@ -67,7 +74,7 @@ export function CartaoProjeto({
           type="button"
           onClick={onAbrirTecnico}
           aria-haspopup="dialog"
-          className="flex items-center justify-between gap-2 border border-accent/40 bg-accent/5 px-4 py-3 text-[11px] font-semibold tracking-[0.15em] text-accent transition-colors hover:bg-accent hover:text-base"
+          className="flex items-center justify-between gap-2 border border-accent/40 bg-accent/5 px-4 py-3 text-[11px] font-semibold tracking-[0.15em] text-accent transition-colors hover:bg-accent hover:text-canvas"
         >
           DETALHES TÉCNICOS
           <span aria-hidden>{"</>"}</span>
