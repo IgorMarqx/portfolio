@@ -24,6 +24,7 @@ export function ModalProjeto({ projeto, detalhe, onFechar }: Props) {
       titulo={detalhe.titulo}
       subtitulo={detalhe.resumo}
       imagem={capitulo.imagem}
+      trecho={{ titulo: capitulo.titulo, paragrafos: capitulo.paragrafos }}
       passos={detalhe.capitulos.map((cap) => ({
         chave: cap.id,
         rotulo: cap.titulo,
@@ -33,24 +34,26 @@ export function ModalProjeto({ projeto, detalhe, onFechar }: Props) {
       onFechar={onFechar}
       areaRef={narrativa}
     >
-      <p className="border-l-2 border-accent pl-4 text-sm leading-relaxed text-fg/85">
-        {detalhe.abertura}
-      </p>
+      <div className="space-y-4 border-l-2 border-accent pl-5 text-[15px] leading-7 text-fg/90 sm:text-base sm:leading-8">
+        {[detalhe.abertura].flat().map((paragrafo) => (
+          <p key={paragrafo}>{paragrafo}</p>
+        ))}
+      </div>
 
       {detalhe.capitulos.map((cap, indice) => (
         <section
           key={cap.id}
           data-indice={indice}
-          className="mt-10 scroll-mt-4"
+          className="mt-14 scroll-mt-4 border-t border-line pt-10"
         >
           <p className="text-[11px] tracking-[0.2em] text-accent">
             {String(indice + 1).padStart(2, "0")} — {cap.imagem.rotulo}
           </p>
-          <h4 className="mt-2 text-lg font-bold">{cap.titulo}</h4>
+          <h4 className="mt-3 text-xl font-bold leading-snug sm:text-2xl">{cap.titulo}</h4>
 
-          <div className="mt-3 space-y-4">
+          <div className="mt-5 space-y-5">
             {cap.paragrafos.map((paragrafo) => (
-              <p key={paragrafo} className="text-sm leading-relaxed text-fg/80">
+              <p key={paragrafo} className="text-[15px] leading-7 text-fg/80">
                 {paragrafo}
               </p>
             ))}
@@ -58,7 +61,7 @@ export function ModalProjeto({ projeto, detalhe, onFechar }: Props) {
         </section>
       ))}
 
-      <p className="mt-10 border-t border-line pt-6 text-sm leading-relaxed text-fg/85">
+      <p className="mt-14 border-t border-line pt-10 text-[15px] leading-7 text-fg/90">
         {detalhe.fecho}
       </p>
 
