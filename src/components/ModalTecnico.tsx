@@ -24,6 +24,14 @@ export function ModalTecnico({ projeto, tecnico, onFechar }: Props) {
       titulo={projeto.nome}
       subtitulo={tecnico.resumo}
       imagem={secao.imagem}
+      trecho={{
+        titulo: secao.titulo,
+        paragrafos: [
+          ...(secao.texto ? [secao.texto] : []),
+          ...(secao.passos ?? []),
+          ...(secao.itens ?? []).map((item) => `${item.nome} — ${item.papel}`),
+        ],
+      }}
       passos={tecnico.secoes.map((item) => ({
         chave: item.id,
         rotulo: item.titulo,
