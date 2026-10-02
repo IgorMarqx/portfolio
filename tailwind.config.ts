@@ -10,11 +10,13 @@ const config: Config = {
         panel: "rgb(var(--c-panel) / <alpha-value>)",
         line: "rgb(var(--c-line) / <alpha-value>)",
         accent: "rgb(var(--c-accent) / <alpha-value>)",
+        sky: "rgb(var(--c-sky) / <alpha-value>)",
         muted: "rgb(var(--c-muted) / <alpha-value>)",
         fg: "rgb(var(--c-fg) / <alpha-value>)",
       },
       fontFamily: {
-        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
+        sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
+        titulo: ["var(--font-titulo)", "var(--font-sans)", "sans-serif"],
       },
       keyframes: {
         pulseDot: {
