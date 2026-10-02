@@ -133,10 +133,12 @@ export const projetos: Projeto[] = [
     categoria: "RH / JORNADA",
     nome: "Ponto e Funcionários",
     descricao:
-      "Registro de entradas e saídas, histórico de marcações, correção de inconsistências e relatórios por período.",
-    visual: "MARCAÇÕES",
-    tags: ["PHP", "MySQL"],
-    impacto: "Centraliza a frequência e facilita auditoria administrativa.",
+      "Ponto eletrônico para órgãos públicos: batida com foto e cerca geográfica, jornada apurada sozinha e folha de ponto mensal em PDF entregue por WhatsApp.",
+    visual: "DASHBOARD",
+    capa: "/img/ponto-funcionarios/dashboard-ponto.png",
+    tags: ["Laravel", "React", "Reverb", "MySQL", "S3"],
+    impacto:
+      "Fim da batida fora do local ou por terceiros, da apuração manual de horas e da montagem de folhas no fim do mês.",
   },
   {
     slug: "viagens-frota-fiscal",
