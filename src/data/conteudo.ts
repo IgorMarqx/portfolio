@@ -70,6 +70,8 @@ export type Projeto = {
   visual: string;
   /** Vídeo mudo em laço no lugar do rótulo `visual` do cartão. */
   miniatura?: string;
+  /** Imagem parada no lugar do rótulo, para projeto que só tem captura. */
+  capa?: string;
   tags: string[];
   impacto: string;
 };
@@ -118,11 +120,12 @@ export const projetos: Projeto[] = [
     categoria: "PROCESSOS ADMINISTRATIVOS",
     nome: "Compras e Licitações",
     descricao:
-      "Digitalização de solicitações, fornecedores, propostas, etapas e responsáveis, com histórico de movimentações e relatórios.",
-    visual: "PROCESSOS",
-    tags: ["PHP", "MySQL"],
+      "Ciclo de compras de um órgão público digitalizado, da solicitação à entrega comprovada com nota fiscal e foto, com aviso por WhatsApp a cada mudança de status.",
+    visual: "SOLICITAÇÕES",
+    capa: "/img/compras-licitacoes/solicitacoes-compras.png",
+    tags: ["Laravel", "React", "Inertia", "Reverb", "S3"],
     impacto:
-      "Mais rastreabilidade e menos dependência de planilhas e documentos físicos.",
+      "Pedidos de várias secretarias deixaram o papel e a planilha e passaram a ter número, status e prova de entrega.",
   },
   {
     slug: "ponto-funcionarios",
