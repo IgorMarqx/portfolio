@@ -7,8 +7,8 @@ import { navegacao, perfil } from "@/data/conteudo";
 
 function estiloDoItem(ativo: boolean) {
   return ativo
-    ? "whitespace-nowrap border-b border-accent pb-1 text-accent"
-    : "whitespace-nowrap border-b border-transparent pb-1 text-muted transition-colors hover:text-fg";
+    ? "whitespace-nowrap rounded-full bg-accent/10 px-3 py-1.5 text-accent"
+    : "whitespace-nowrap rounded-full px-3 py-1.5 text-muted transition-colors hover:text-fg";
 }
 
 export function Cabecalho() {
@@ -39,21 +39,20 @@ export function Cabecalho() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex items-center justify-between gap-3 py-3 sm:py-4">
           <a href="#home" className="flex min-w-0 items-center gap-3">
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center border border-line text-xs text-accent">
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent text-sm font-extrabold text-canvas">
               {perfil.iniciais}
             </span>
-            <span className="truncate text-sm font-semibold tracking-wide">
-              {perfil.nome.toUpperCase()}
-            </span>
-            <span className="hidden items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-muted lg:flex">
-              {perfil.titulo}
-              <span className="h-1.5 w-1.5 animate-pulse-dot rounded-full bg-accent" />
+            <span className="flex min-w-0 flex-col leading-tight">
+              <span className="truncate text-[15px] font-bold">{perfil.nome}</span>
+              <span className="hidden truncate text-xs text-sky sm:block">
+                {perfil.titulo}
+              </span>
             </span>
           </a>
 
           {/* No celular a navegação desce para a própria linha; aqui fica só o tema. */}
           <div className="flex shrink-0 items-center gap-3 sm:gap-5">
-            <nav className="hidden items-center gap-3 text-[11px] tracking-[0.15em] md:flex lg:gap-5">
+            <nav className="hidden items-center gap-1 text-sm font-medium md:flex">
               {navegacao.map((item) => (
                 <a
                   key={item.id}
@@ -68,7 +67,7 @@ export function Cabecalho() {
           </div>
         </div>
 
-        <nav className="sem-barra -mx-4 flex gap-4 overflow-x-auto px-4 pb-2 text-[11px] tracking-[0.15em] md:hidden">
+        <nav className="sem-barra -mx-4 flex gap-1 overflow-x-auto px-4 pb-3 text-sm font-medium md:hidden">
           {navegacao.map((item) => (
             <a
               key={item.id}
