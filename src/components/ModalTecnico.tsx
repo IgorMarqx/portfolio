@@ -99,11 +99,14 @@ export function ModalTecnico({ projeto, tecnico, onFechar }: Props) {
         </section>
       ))}
 
-      <p className="mt-10 border-t border-line pt-6 text-sm leading-relaxed text-muted">
-        Itens marcados como <span className="text-fg">A CONFIRMAR</span> ainda
-        não foram checados contra o projeto real — estão aqui como lacuna
-        assumida, não como afirmação.
-      </p>
+      {/* A nota só aparece quando ainda há item marcado; sem marca, ela explicaria nada. */}
+      {tecnico.secoes.some((item) => item.itens?.some((t) => t.confirmar)) ? (
+        <p className="mt-10 border-t border-line pt-6 text-sm leading-relaxed text-muted">
+          Itens marcados como <span className="text-fg">A CONFIRMAR</span> ainda
+          não foram checados contra o projeto real — estão aqui como lacuna
+          assumida, não como afirmação.
+        </p>
+      ) : null}
     </ModalCasca>
   );
 }
