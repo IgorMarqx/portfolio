@@ -52,7 +52,7 @@ export function MiniaturaVideo({ src, rotulo }: Props) {
           className="absolute inset-0 h-full w-full origin-top scale-[1.45] object-cover object-top"
         />
       ) : null}
-      <span className="absolute bottom-2 left-2 border border-line bg-canvas/85 px-2 py-0.5 text-[10px] tracking-[0.2em] text-muted backdrop-blur">
+      <span className="absolute bottom-2 left-2 rounded-full bg-canvas/85 px-2.5 py-0.5 text-xs font-semibold text-sky backdrop-blur">
         {rotulo}
       </span>
     </div>
