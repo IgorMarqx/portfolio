@@ -20,7 +20,7 @@ export function ModalTecnico({ projeto, tecnico, onFechar }: Props) {
 
   return (
     <ModalCasca
-      etiqueta={`// ${projeto.numero} · DETALHES TÉCNICOS`}
+      etiqueta={`${projeto.numero} · Detalhes técnicos`}
       titulo={projeto.nome}
       subtitulo={tecnico.resumo}
       imagem={secao.imagem}
@@ -47,13 +47,13 @@ export function ModalTecnico({ projeto, tecnico, onFechar }: Props) {
           data-indice={indice}
           className={indice === 0 ? "scroll-mt-4" : "mt-10 scroll-mt-4"}
         >
-          <p className="text-[11px] tracking-[0.2em] text-accent">
+          <p className="rotulo">
             {String(indice + 1).padStart(2, "0")} — {item.imagem.rotulo}
           </p>
-          <h4 className="mt-2 text-lg font-bold">{item.titulo}</h4>
+          <h4 className="mt-2 text-lg font-bold tracking-tight">{item.titulo}</h4>
 
           {item.texto ? (
-            <p className="mt-3 text-sm leading-relaxed text-fg/80">
+            <p className="mt-3 text-[15px] leading-relaxed text-fg/85">
               {item.texto}
             </p>
           ) : null}
@@ -63,9 +63,9 @@ export function ModalTecnico({ projeto, tecnico, onFechar }: Props) {
               {item.passos.map((passoTexto, ordem) => (
                 <li
                   key={passoTexto}
-                  className="flex gap-3 text-sm leading-relaxed text-fg/80"
+                  className="flex gap-3 text-[15px] leading-relaxed text-fg/85"
                 >
-                  <span className="shrink-0 text-accent">
+                  <span className="shrink-0 font-semibold tabular-nums text-accent">
                     {String(ordem + 1).padStart(2, "0")}
                   </span>
                   {passoTexto}
@@ -81,15 +81,15 @@ export function ModalTecnico({ projeto, tecnico, onFechar }: Props) {
                   key={tecnologia.nome}
                   className="flex flex-wrap gap-x-3 gap-y-1 py-3"
                 >
-                  <dt className="flex items-center gap-2 text-sm font-semibold text-fg">
+                  <dt className="flex items-center gap-2 text-[15px] font-bold text-fg">
                     {tecnologia.nome}
                     {tecnologia.confirmar ? (
-                      <span className="border border-line px-1.5 py-0.5 text-[10px] tracking-[0.1em] text-muted">
+                      <span className="rounded-full border border-line px-2 py-0.5 text-[11px] font-semibold text-muted">
                         A CONFIRMAR
                       </span>
                     ) : null}
                   </dt>
-                  <dd className="w-full text-xs leading-relaxed text-muted">
+                  <dd className="w-full text-sm leading-relaxed text-muted">
                     {tecnologia.papel}
                   </dd>
                 </div>
@@ -99,7 +99,7 @@ export function ModalTecnico({ projeto, tecnico, onFechar }: Props) {
         </section>
       ))}
 
-      <p className="mt-10 border-t border-line pt-6 text-xs leading-relaxed text-muted">
+      <p className="mt-10 border-t border-line pt-6 text-sm leading-relaxed text-muted">
         Itens marcados como <span className="text-fg">A CONFIRMAR</span> ainda
         não foram checados contra o projeto real — estão aqui como lacuna
         assumida, não como afirmação.
