@@ -303,42 +303,85 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
   },
 
   "compras-licitacoes": {
-    resumo: "PHP · MySQL",
+    resumo: "Laravel 12 · Inertia · React 19 · Reverb · Queues · S3 · Docker",
     secoes: [
       {
         id: "stack",
-        titulo: "Stack",
+        titulo: "Stack da aplicação",
         imagem: {
-          rotulo: "APLICAÇÃO",
-          legenda: "Aplicação PHP com banco relacional",
+          rotulo: "ARQUITETURA",
+          legenda: "Monolito Laravel servindo React pelo Inertia",
+        },
+        texto:
+          "Um monolito Laravel com o front em React servido pelo Inertia, organizado em camadas Controller → Service → Repository. Controllers finos, regras nos Services e consultas nos Repositories: as regras podem ser testadas isoladas.",
+        itens: [
+          { nome: "PHP 8.2 + Laravel 12", papel: "Aplicação, regras de negócio e rotas" },
+          { nome: "Sanctum", papel: "Autenticação por token na API" },
+          {
+            nome: "Inertia 2 + React 19 + TypeScript",
+            papel: "Páginas servidas pelo Laravel, interface em React",
+          },
+          {
+            nome: "Tailwind CSS 4 + Radix UI + Framer Motion",
+            papel: "Componentes acessíveis e animações da interface",
+          },
+          { nome: "Recharts", papel: "Gráficos do dashboard" },
+          { nome: "jsPDF + AutoTable", papel: "Ordem de compra e relatórios em PDF" },
+          { nome: "Pest", papel: "Testes automatizados" },
+        ],
+      },
+      {
+        id: "filas",
+        titulo: "Filas, eventos e tempo real",
+        imagem: {
+          rotulo: "FILAS",
+          legenda: "Da troca de status ao aviso e à tela atualizada",
+        },
+        passos: [
+          "Um observer no model percebe a troca de status da solicitação.",
+          "O envio por WhatsApp entra na fila como job, com 3 tentativas, intervalo entre elas e log de falha.",
+          "Itens são inseridos em lote, até 1.000 linhas por vez, e o total é recalculado no mesmo job.",
+          "A trava WithoutOverlapping impede dois jobs concorrentes na mesma solicitação.",
+          "No fim do processamento, um evento sai pelo Reverb e o Echo atualiza o dashboard sem recarregar.",
+        ],
+      },
+      {
+        id: "integracoes",
+        titulo: "Integrações",
+        imagem: {
+          rotulo: "WHATSAPP",
+          legenda: "Configuração de aviso por status, com template e números",
+          src: "/img/compras-licitacoes/whatsapp-compras.png",
         },
         itens: [
-          { nome: "PHP", papel: "Aplicação e regras do processo" },
           {
-            nome: "MySQL",
-            papel: "Processos, fornecedores, propostas e movimentações",
+            nome: "API de WhatsApp",
+            papel: "Envio de texto e mídia, com telefones normalizados e deduplicados",
           },
-          {
-            nome: "Permissões por perfil",
-            papel: "Cada função enxerga o seu recorte",
-          },
+          { nome: "AWS S3", papel: "Notas fiscais e fotos de coleta" },
+          { nome: "Google Maps embed", papel: "Endereço do usuário no mapa" },
+          { nome: "Busca por CEP", papel: "Preenchimento automático do endereço" },
         ],
+      },
+      {
+        id: "acesso",
+        titulo: "Acesso por perfil",
+        imagem: {
+          rotulo: "PERFIS",
+          legenda: "Cinco perfis, um painel para cada um",
+        },
+        texto:
+          "Middleware de autenticação na API e middleware de perfil nas rotas web. Administrador, aprovador, solicitante, fornecedor e operador abrem a mesma rota e recebem painéis diferentes.",
       },
       {
         id: "infra",
         titulo: "Infraestrutura e entrega",
-        imagem: { rotulo: "HOSPEDAGEM", legenda: "Onde a aplicação roda" },
+        imagem: { rotulo: "AMBIENTE", legenda: "Onde a aplicação roda" },
         itens: [
-          {
-            nome: "Hospedagem",
-            papel: "Servidor da aplicação",
-            confirmar: true,
-          },
-          {
-            nome: "Armazenamento de documentos",
-            papel: "Anexos do processo",
-            confirmar: true,
-          },
+          { nome: "Docker + Docker Compose", papel: "Ambiente reproduzível da aplicação" },
+          { nome: "Vite 7", papel: "Build do front" },
+          { nome: "MySQL", papel: "Banco relacional da aplicação", confirmar: true },
+          { nome: "Hospedagem", papel: "Servidor da aplicação", confirmar: true },
           { nome: "CI/CD", papel: "Publicação da aplicação", confirmar: true },
         ],
       },
