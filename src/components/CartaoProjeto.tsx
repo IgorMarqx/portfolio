@@ -35,6 +35,19 @@ export function CartaoProjeto({
         <div className="mt-6 h-32 overflow-hidden rounded-xl border border-line bg-panel">
           <MiniaturaVideo src={projeto.miniatura} rotulo={projeto.visual} />
         </div>
+      ) : projeto.capa ? (
+        <div className="relative mt-6 h-32 overflow-hidden rounded-xl border border-line bg-panel">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={projeto.capa}
+            alt=""
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover object-left-top"
+          />
+          <span className="absolute bottom-2 left-2 rounded-full bg-canvas/85 px-2.5 py-0.5 text-xs font-semibold text-sky backdrop-blur">
+            {projeto.visual}
+          </span>
+        </div>
       ) : (
         <div className="brilho mt-6 flex h-32 items-center justify-center rounded-xl border border-line bg-panel text-sm font-semibold text-sky">
           {projeto.visual}
