@@ -336,37 +336,106 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
 
   "compras-licitacoes": {
     titulo: "Sistema de Compras e Licitações",
-    resumo: "PHP · MySQL · Processos administrativos",
-    abertura:
-      "Comprar dentro de um órgão é menos sobre a compra e mais sobre conseguir provar depois como ela aconteceu. O processo passava por planilha, papel e combinação informal — e quem queria saber em que pé estava uma solicitação dependia de achar a pessoa certa e de ela lembrar.",
+    resumo: "Laravel · React · Inertia · Reverb · WhatsApp · S3",
+    abertura: [
+      "Comprar dentro de um órgão público é menos sobre a compra e mais sobre conseguir provar depois como ela aconteceu. Os pedidos de compra e de serviço das secretarias circulavam em papel e planilha, sem status, sem histórico e sem prova de entrega.",
+      "Quem queria saber em que pé estava um pedido dependia de achar a pessoa certa e de ela lembrar. A plataforma levou o ciclo inteiro para um lugar só: da solicitação à entrega comprovada com foto, passando por aprovação, fornecedor e nota fiscal.",
+    ],
     capitulos: [
       {
-        id: "solicitacao",
-        titulo: "Toda solicitação passa a ter dono e etapa",
+        id: "solicitacoes",
+        titulo: "Todo pedido ganha número e estado",
         imagem: {
-          rotulo: "PROCESSOS",
-          legenda: "Lista de solicitações por etapa e responsável",
+          rotulo: "SOLICITAÇÕES",
+          legenda: "Lista de solicitações com tipo, secretaria, fornecedor, valor e status",
+          src: "/img/compras-licitacoes/solicitacoes-compras.png",
         },
         paragrafos: [
-          "A solicitação entra no sistema e nasce com responsável e etapa. Nada avança por mensagem paralela: o estado do processo é o que está registrado.",
-          "Fornecedores, valores e propostas ficam junto do processo a que pertencem, e não em arquivos soltos que precisam ser reunidos de novo toda vez.",
+          "Cada solicitação nasce com um número sequencial por ano e entra num fluxo de oito status: rascunho, enviada, aprovada, em compra, entregue parcial, entregue, devolvida e cancelada. O estado do pedido passa a ser o que está registrado, não o que alguém lembra.",
+          "A lista junta o que antes ficava espalhado: tipo, secretaria, fornecedor, justificativa, valor estimado e para quem é o pedido. A busca procura em todos os campos de uma vez, e os filtros por tipo e status reduzem a fila ao que importa naquele momento.",
+        ],
+      },
+      {
+        id: "nova",
+        titulo: "O pedido já nasce completo",
+        imagem: {
+          rotulo: "NOVA SOLICITAÇÃO",
+          legenda: "Formulário de compra com secretaria, fornecedor, prazo, local de entrega e itens",
+          src: "/img/compras-licitacoes/nova-compras.png",
+        },
+        paragrafos: [
+          "A solicitação é de compra ou de serviço, e o formulário pede de saída o que antes chegava aos pedaços: secretaria, fornecedor, justificativa, prazo desejado, local de entrega, destinatário e quem vai retirar.",
+          "Os itens entram com descrição, unidade, quantidade e valor unitário. O subtotal de cada linha e o total estimado da solicitação são calculados na hora. Um pedido parecido com outro anterior pode ser duplicado e volta como rascunho, pronto para ajuste.",
+        ],
+      },
+      {
+        id: "detalhe",
+        titulo: "Tudo de uma solicitação numa tela só",
+        imagem: {
+          rotulo: "DETALHE",
+          legenda: "Visão completa da solicitação e dos itens vinculados",
+          src: "/img/compras-licitacoes/detalhe-compras.png",
+        },
+        paragrafos: [
+          "O detalhe reúne o pedido inteiro: quem pediu, para qual secretaria, de qual fornecedor, com que prazo, onde entregar e por que comprar. Os itens aparecem com subtotal e total no rodapé.",
+          "Dali sai a ordem de compra em PDF, com os itens e o local de entrega. É o documento que o fornecedor recebe, gerado a partir do mesmo registro que o aprovador conferiu.",
+        ],
+      },
+      {
+        id: "whatsapp",
+        titulo: "O aviso sai sozinho",
+        imagem: {
+          rotulo: "NOTIFICAÇÕES",
+          legenda: "Configuração de aviso por WhatsApp: mensagem, status de disparo e números",
+          src: "/img/compras-licitacoes/whatsapp-compras.png",
+        },
+        paragrafos: [
+          "Cada mudança de status pode avisar as pessoas certas por WhatsApp. A configuração define quais status disparam, para quais números, e com qual mensagem — um template editável com variáveis como o número da solicitação, o status novo e o anterior.",
+          "Nenhuma tela precisa lembrar de avisar. Um observer no model percebe a troca de status e põe o envio na fila, com três tentativas, intervalo entre elas e registro de falha. Os telefones são normalizados e deduplicados antes de sair.",
         ],
       },
       {
         id: "historico",
-        titulo: "O histórico é o produto",
+        titulo: "Entrega com prova, não com palavra",
         imagem: {
-          rotulo: "MOVIMENTAÇÕES",
-          legenda: "Linha do tempo de um processo, com quem moveu e quando",
+          rotulo: "HISTÓRICO",
+          legenda: "Resumo do histórico: total, entregues, canceladas e valor estimado",
+          src: "/img/compras-licitacoes/historico-compras.png",
         },
         paragrafos: [
-          "Cada movimentação fica gravada com autor e data. Meses depois, reconstituir uma decisão deixa de ser um exercício de arqueologia.",
-          "Sobre esse registro vêm os relatórios administrativos e o controle de permissões por perfil — cada um enxerga o que a função pede.",
+          "O fornecedor recebe as ordens destinadas a ele, registra a nota fiscal com data de emissão e arquivo anexado e comprova a retirada com uma foto tirada pela câmera do próprio aparelho. Nota e foto ficam guardadas no S3, e dá para abrir qualquer anexo sem sair da tela.",
+          "O histórico fecha a conta por fornecedor: quantas solicitações passaram, quantas foram entregues, quantas canceladas e quanto isso soma. A pergunta \"foi entregue?\" passa a ter resposta com documento.",
+        ],
+      },
+      {
+        id: "relatorios",
+        titulo: "Relatório que responde a pergunta feita",
+        imagem: {
+          rotulo: "RELATÓRIOS",
+          legenda: "Filtros combináveis, valor total filtrado e exportação em PDF",
+          src: "/img/compras-licitacoes/relatorios-compras.png",
+        },
+        paragrafos: [
+          "Os filtros se combinam: ano, mês, intervalo de datas, secretaria, solicitante, fornecedor, tipo e status. O valor total acompanha o recorte, os filtros ficam salvos no navegador e o resultado sai em PDF.",
+          "O painel não precisa de recarga. Quando um processamento termina, um evento passa pelo WebSocket e a tela se atualiza sozinha. As contagens por mês, status e secretaria são agregadas no banco, e não no navegador.",
+        ],
+      },
+      {
+        id: "cadastros",
+        titulo: "Cadastros que dão sentido aos números",
+        imagem: {
+          rotulo: "SECRETARIAS",
+          legenda: "Secretarias com cor própria, usada nos gráficos do dashboard",
+          src: "/img/compras-licitacoes/secretarias-compras.png",
+        },
+        paragrafos: [
+          "Cada secretaria tem uma cor, e essa cor acompanha a secretaria nos gráficos de valor gasto. Quem bate o olho no dashboard reconhece de quem é cada fatia.",
+          "Os usuários se dividem em cinco perfis — administrador, aprovador, solicitante, fornecedor e operador — e cada um abre um painel diferente na mesma rota. O cadastro busca o endereço pelo CEP e mostra o local no mapa.",
         ],
       },
     ],
     fecho:
-      "O ganho é rastreabilidade: menos dependência de planilha paralela e do conhecimento individual de quem tocava o processo.",
+      "O ganho é rastreabilidade: cada pedido tem número, dono, status e prova de entrega, e cada mudança fica registrada e avisada. O processo deixa de depender da memória de quem o tocava.",
   },
 
   "ponto-funcionarios": {
