@@ -34,7 +34,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "quadras",
         titulo: "Começou pelas quadras",
         imagem: {
-          rotulo: "[ MAPA DE RESERVAS ]",
+          rotulo: "MAPA DE RESERVAS",
           legenda:
             "Grade de horários das cinco quadras, com as regras de limite já aplicadas",
           video: "/videos/centro-tenistico/reservas-centro-tenistico.mp4",
@@ -49,7 +49,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "visibilidade",
         titulo: "E então deu para ver o que acontecia",
         imagem: {
-          rotulo: "[ DASHBOARD ]",
+          rotulo: "DASHBOARD",
           legenda:
             "Uso das quadras, reservas do dia e histórico — o que antes não existia em lugar nenhum",
           video: "/videos/centro-tenistico/dashboard-centro-tenistico.mp4",
@@ -63,7 +63,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "aulas",
         titulo: "Cada professor com seus alunos",
         imagem: {
-          rotulo: "[ TURMAS E AULAS ]",
+          rotulo: "TURMAS E AULAS",
           legenda: "Turmas de um professor, com horários e alunos vinculados",
           src: "/img/centro-tenistico/turmas-centro-tenistico.png",
         },
@@ -77,7 +77,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "social",
         titulo: "O projeto social entrou na mesma casa",
         imagem: {
-          rotulo: "[ PROJETO SOCIAL ]",
+          rotulo: "PROJETO SOCIAL",
           legenda: "Participantes, professores responsáveis e aulas do projeto",
           src: "/img/centro-tenistico/projetosocial-centro-tenistico.png",
         },
@@ -90,7 +90,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "boletos",
         titulo: "O maior problema era o boleto",
         imagem: {
-          rotulo: "[ COBRANÇAS ]",
+          rotulo: "COBRANÇAS",
           legenda:
             "Geração de cobrança integrada ao Sicredi e envio pelo WhatsApp",
           video: "/videos/centro-tenistico/financeiro-centro-tenistico.mp4",
@@ -105,7 +105,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "cantina",
         titulo: "Quando a cantina virou financeiro",
         imagem: {
-          rotulo: "[ CANTINA E ESTOQUE ]",
+          rotulo: "CANTINA E ESTOQUE",
           legenda:
             "Consumo lançado para o associado, com produto, preço e estoque",
         },
@@ -118,7 +118,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "permissoes",
         titulo: "Cada um enxerga o que é seu",
         imagem: {
-          rotulo: "[ USUÁRIOS E PERMISSÕES ]",
+          rotulo: "USUÁRIOS E PERMISSÕES",
           legenda: "Perfis de diretoria, secretaria, professor e associado",
         },
         paragrafos: [
@@ -144,7 +144,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "problema",
         titulo: "Cada integração trazia uma nova forma de trabalhar",
         imagem: {
-          rotulo: "[ O PROBLEMA ]",
+          rotulo: "O PROBLEMA",
           legenda: "Contratos, formatos e estados diferentes em cada parceiro",
         },
         paragrafos: [
@@ -158,7 +158,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "abrangencia",
         titulo: "Dezesseis integrações conectadas ao mesmo objetivo",
         imagem: {
-          rotulo: "[ ABRANGÊNCIA ]",
+          rotulo: "ABRANGÊNCIA",
           legenda: "As 16 conexões do escopo, incluindo o padrão Open Delivery",
         },
         paragrafos: [
@@ -171,7 +171,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "padronizacao",
         titulo: "Traduzir na entrada para simplificar a operação",
         imagem: {
-          rotulo: "[ PADRONIZAÇÃO ]",
+          rotulo: "PADRONIZAÇÃO",
           legenda: "Formato do parceiro traduzido para o formato interno na entrada",
         },
         paragrafos: [
@@ -185,7 +185,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "assincrono",
         titulo: "Receber um evento e executar o trabalho são etapas diferentes",
         imagem: {
-          rotulo: "[ PROCESSAMENTO ASSÍNCRONO ]",
+          rotulo: "PROCESSAMENTO ASSÍNCRONO",
           legenda: "Entrada do parceiro, fila e processamento em background",
         },
         paragrafos: [
@@ -199,7 +199,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "duplicidade",
         titulo: "O mesmo pedido pode aparecer mais de uma vez",
         imagem: {
-          rotulo: "[ ORIGEM E DUPLICIDADE ]",
+          rotulo: "ORIGEM E DUPLICIDADE",
           legenda: "Evento reenviado encontra a operação que já existe, sem criar outra",
         },
         paragrafos: [
@@ -213,7 +213,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "continuidade",
         titulo: "A conexão precisa acompanhar o que acontece depois",
         imagem: {
-          rotulo: "[ CONTINUIDADE DO FLUXO ]",
+          rotulo: "CONTINUIDADE DO FLUXO",
           legenda: "99Food: endpoints logísticos, webhooks e rastreamento do entregador",
         },
         paragrafos: [
@@ -227,7 +227,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "escala",
         titulo: "Centenas de conexões, milhares de pedidos e uma operação compartilhada",
         imagem: {
-          rotulo: "[ ESCALA E PROCESSAMENTO ]",
+          rotulo: "ESCALA E PROCESSAMENTO",
           legenda: "599 vínculos com empresas, 497 ativos, em 17 integrações do painel",
         },
         paragrafos: [
@@ -245,7 +245,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "visibilidade",
         titulo: "Saber onde a comunicação parou",
         imagem: {
-          rotulo: "[ VISIBILIDADE OPERACIONAL ]",
+          rotulo: "VISIBILIDADE OPERACIONAL",
           legenda: "Disponibilidade, última comunicação, último pedido, autenticação e timeouts",
         },
         paragrafos: [
@@ -259,7 +259,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "impacto",
         titulo: "Mais conexões comerciais e menos intervenção manual",
         imagem: {
-          rotulo: "[ IMPACTO ]",
+          rotulo: "IMPACTO",
           legenda: "Ecossistema ampliado e menos correção manual entre sistemas",
         },
         paragrafos: [
@@ -273,7 +273,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "atuacao",
         titulo: "Do contrato externo à sustentação em produção",
         imagem: {
-          rotulo: "[ MINHA ATUAÇÃO ]",
+          rotulo: "MINHA ATUAÇÃO",
           legenda: "APIs, webhooks, filas, idempotência e diagnóstico de falhas",
         },
         paragrafos: [
@@ -297,7 +297,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "assincrono",
         titulo: "Dinheiro sai da frente da tela",
         imagem: {
-          rotulo: "[ FLUXO DE ANTECIPAÇÃO ]",
+          rotulo: "FLUXO DE ANTECIPAÇÃO",
           legenda: "Pedido, fila e processamento fora do fluxo síncrono",
         },
         paragrafos: [
@@ -309,7 +309,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "agendamento",
         titulo: "Pagamento com hora marcada",
         imagem: {
-          rotulo: "[ AGENDAMENTO ]",
+          rotulo: "AGENDAMENTO",
           legenda: "EventBridge Scheduler disparando a rodada de pagamentos",
         },
         paragrafos: [
@@ -321,7 +321,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "conciliacao",
         titulo: "O difícil é fechar a conta",
         imagem: {
-          rotulo: "[ EXTRATO E CICLOS ]",
+          rotulo: "EXTRATO E CICLOS",
           legenda: "Saldos, transações, repasses e ciclos do entregador",
         },
         paragrafos: [
@@ -344,7 +344,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "solicitacao",
         titulo: "Toda solicitação passa a ter dono e etapa",
         imagem: {
-          rotulo: "[ PROCESSOS ]",
+          rotulo: "PROCESSOS",
           legenda: "Lista de solicitações por etapa e responsável",
         },
         paragrafos: [
@@ -356,7 +356,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "historico",
         titulo: "O histórico é o produto",
         imagem: {
-          rotulo: "[ MOVIMENTAÇÕES ]",
+          rotulo: "MOVIMENTAÇÕES",
           legenda: "Linha do tempo de um processo, com quem moveu e quando",
         },
         paragrafos: [
@@ -379,7 +379,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "marcacoes",
         titulo: "A marcação e o que veio antes dela",
         imagem: {
-          rotulo: "[ MARCAÇÕES ]",
+          rotulo: "MARCAÇÕES",
           legenda: "Entradas e saídas do funcionário, dia a dia",
         },
         paragrafos: [
@@ -391,7 +391,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "correcao",
         titulo: "Correção faz parte, e fica registrada",
         imagem: {
-          rotulo: "[ AJUSTES ]",
+          rotulo: "AJUSTES",
           legenda: "Correção de inconsistência preservando o registro original",
         },
         paragrafos: [
@@ -414,7 +414,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "viagens",
         titulo: "Viagens e eventos",
         imagem: {
-          rotulo: "[ SOLICITAÇÕES ]",
+          rotulo: "SOLICITAÇÕES",
           legenda:
             "Solicitação de viagem com participantes, despesas e pagamentos",
         },
@@ -427,7 +427,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "frota",
         titulo: "Combustível por veículo",
         imagem: {
-          rotulo: "[ ABASTECIMENTOS ]",
+          rotulo: "ABASTECIMENTOS",
           legenda: "Consumo por veículo e responsável, com histórico e valores",
         },
         paragrafos: [
@@ -439,7 +439,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "fiscal",
         titulo: "Notas fiscais que não se perdem",
         imagem: {
-          rotulo: "[ NOTAS FISCAIS ]",
+          rotulo: "NOTAS FISCAIS",
           legenda:
             "Documentos por fornecedor e período, com situação e histórico",
         },
