@@ -20,30 +20,28 @@ export function CartaoProjeto({
         aberto ? "border-accent" : "hover:border-accent/50"
       }`}
     >
-      <div className="flex items-start justify-between text-xs text-muted">
-        <span>{projeto.numero}</span>
-        <span className="text-accent">{aberto ? "−" : "+"}</span>
+      <div className="flex items-center justify-between gap-3">
+        <p className="rotulo">{projeto.categoria}</p>
+        <span className="text-sm font-semibold tabular-nums text-muted">
+          {projeto.numero}
+        </span>
       </div>
-
-      <p className="mt-4 text-[11px] tracking-[0.15em] text-accent">
-        // {projeto.categoria}
-      </p>
-      <h3 className="mt-2 text-xl font-bold sm:text-2xl">{projeto.nome}</h3>
-      <p className="mt-3 text-sm leading-relaxed text-muted">
+      <h3 className="mt-3 text-xl font-bold tracking-tight sm:text-2xl">{projeto.nome}</h3>
+      <p className="mt-3 text-[15px] leading-relaxed text-muted">
         {projeto.descricao}
       </p>
 
       {projeto.miniatura ? (
-        <div className="mt-6 h-28 border border-line bg-panel">
+        <div className="mt-6 h-32 overflow-hidden rounded-xl border border-line bg-panel">
           <MiniaturaVideo src={projeto.miniatura} rotulo={projeto.visual} />
         </div>
       ) : (
-        <div className="mt-6 flex h-28 items-center justify-center border border-line bg-panel text-[11px] tracking-[0.2em] text-muted">
+        <div className="brilho mt-6 flex h-32 items-center justify-center rounded-xl border border-line bg-panel text-sm font-semibold text-sky">
           {projeto.visual}
         </div>
       )}
 
-      <p className="mt-6 border-l border-accent/40 pl-3 text-xs leading-relaxed text-muted">
+      <p className="mt-6 border-l-2 border-accent pl-3 text-sm leading-relaxed text-fg/85">
         {projeto.impacto}
       </p>
 
@@ -51,22 +49,23 @@ export function CartaoProjeto({
         {projeto.tags.map((tag) => (
           <span
             key={tag}
-            className="border border-line px-2 py-1 text-[11px] text-fg/80"
+            className="rounded-full bg-panel px-3 py-1 text-xs font-medium text-fg/85"
           >
             {tag}
           </span>
         ))}
       </div>
 
-      {/* mt-auto prende os botões no rodapé: os cartões têm alturas de texto diferentes. */}
-      <div className="mt-auto grid gap-2 pt-6 sm:grid-cols-2">
+      {/* mt-auto prende os botões no rodapé: os cartões têm alturas de texto diferentes.
+          Um embaixo do outro: lado a lado, o cartão estreito quebrava o texto em duas linhas. */}
+      <div className="mt-auto grid gap-2 pt-6">
         <button
           type="button"
           onClick={onAbrirNarrativa}
           aria-haspopup="dialog"
-          className="flex items-center justify-between gap-2 border border-line px-4 py-3 text-[11px] font-semibold tracking-[0.15em] transition-colors hover:border-accent hover:text-accent"
+          className="flex items-center justify-between gap-2 rounded-xl border border-line px-4 py-3 text-sm font-bold transition-colors hover:border-accent hover:text-accent"
         >
-          ENTENDER MAIS
+          Entender mais
           <span aria-hidden>↗</span>
         </button>
 
@@ -74,9 +73,9 @@ export function CartaoProjeto({
           type="button"
           onClick={onAbrirTecnico}
           aria-haspopup="dialog"
-          className="flex items-center justify-between gap-2 border border-accent/40 bg-accent/5 px-4 py-3 text-[11px] font-semibold tracking-[0.15em] text-accent transition-colors hover:bg-accent hover:text-canvas"
+          className="flex items-center justify-between gap-2 rounded-xl border border-accent/40 bg-accent/10 px-4 py-3 text-sm font-bold text-accent transition-colors hover:bg-accent hover:text-canvas"
         >
-          DETALHES TÉCNICOS
+          Detalhes técnicos
           <span aria-hidden>{"</>"}</span>
         </button>
       </div>
