@@ -4,22 +4,20 @@ export function Habilidades() {
   return (
     <section className="painel grid divide-y divide-line lg:grid-cols-3 lg:divide-x lg:divide-y-0">
       <div className="p-5 sm:p-6">
-        <h2 className="text-xs tracking-[0.2em] text-muted">
-          &lt;/&gt; HABILIDADES TÉCNICAS
-        </h2>
+        <h2 className="text-lg font-bold sm:text-xl">Habilidades técnicas</h2>
         <ul className="mt-6 space-y-4">
           {habilidades.map((habilidade) => (
-            <li key={habilidade.area} className="border-l border-line pl-4">
+            <li key={habilidade.area} className="border-l-2 border-line pl-4">
               <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                <span className="text-sm font-semibold text-fg">
+                <span className="text-[15px] font-bold text-fg">
                   {habilidade.area}
                 </span>
-                <span className="border border-line px-1.5 py-0.5 text-[10px] tracking-[0.15em] text-accent">
+                <span className="rounded-full bg-accent/10 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider text-accent">
                   {habilidade.uso}
                 </span>
               </div>
-              <p className="mt-1 text-xs text-muted">{habilidade.detalhe}</p>
-              <p className="mt-1 text-xs leading-relaxed text-fg/70">
+              <p className="mt-1 text-sm text-sky">{habilidade.detalhe}</p>
+              <p className="mt-1 text-sm leading-relaxed text-muted">
                 {habilidade.onde}
               </p>
             </li>
@@ -28,15 +26,15 @@ export function Habilidades() {
       </div>
 
       <div className="p-5 sm:p-6">
-        <h2 className="text-xs tracking-[0.2em] text-muted">◈ O QUE EU FAÇO</h2>
+        <h2 className="text-lg font-bold sm:text-xl">O que eu faço</h2>
         <ul className="mt-6 space-y-3">
           {servicos.map((servico) => (
             <li
               key={servico}
-              className="flex items-center justify-between gap-3 border border-line px-4 py-4 text-sm text-fg/90"
+              className="flex items-center justify-between gap-3 rounded-xl border border-line bg-panel/50 px-4 py-4 text-[15px] font-medium text-fg"
             >
               {servico}
-              <span className="text-muted" aria-hidden>
+              <span className="text-accent" aria-hidden>
                 ↗
               </span>
             </li>
@@ -45,8 +43,8 @@ export function Habilidades() {
       </div>
 
       <div className="p-5 sm:p-6">
-        <h2 className="text-xs tracking-[0.2em] text-muted">▣ FERRAMENTAS</h2>
-        <ul className="mt-6 space-y-3 text-sm">
+        <h2 className="text-lg font-bold sm:text-xl">Ferramentas</h2>
+        <ul className="mt-6 space-y-3 text-[15px]">
           {ferramentas.map((ferramenta) => (
             <li
               key={ferramenta}
