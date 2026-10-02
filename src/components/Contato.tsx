@@ -23,7 +23,7 @@ export function Contato() {
 
         <a
           href={`mailto:${perfil.email}`}
-          className="mt-8 flex items-center justify-between border border-accent px-5 py-4 text-xs font-semibold tracking-[0.15em] text-fg transition-colors hover:bg-accent hover:text-base"
+          className="mt-8 flex items-center justify-between border border-accent px-5 py-4 text-xs font-semibold tracking-[0.15em] text-fg transition-colors hover:bg-accent hover:text-canvas"
         >
           INICIAR CONVERSA <span aria-hidden>➤</span>
         </a>

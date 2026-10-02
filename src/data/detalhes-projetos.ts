@@ -9,15 +9,16 @@
 export type Capitulo = {
   id: string;
   titulo: string;
-  /** Marcador da tela a ser capturada. As imagens ainda não existem. */
-  imagem: { rotulo: string; legenda: string; src?: string };
+  /** Tela do trecho. Sem `src` nem `video`, o palco mostra o cartão do capítulo. */
+  imagem: { rotulo: string; legenda: string; src?: string; video?: string };
   paragrafos: string[];
 };
 
 export type DetalheProjeto = {
   titulo: string;
   resumo: string;
-  abertura: string;
+  /** Um parágrafo ou vários. */
+  abertura: string | string[];
   capitulos: Capitulo[];
   fecho: string;
 };
@@ -36,6 +37,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
           rotulo: "[ MAPA DE RESERVAS ]",
           legenda:
             "Grade de horários das cinco quadras, com as regras de limite já aplicadas",
+          video: "/videos/centro-tenistico/reservas-centro-tenistico.mp4",
         },
         paragrafos: [
           "A reserva chegava por mensagem. Alguém da secretaria lia, conferia de memória se o horário estava livre, respondia e anotava. Multiplique isso por cinco quadras e um dia cheio.",
@@ -50,6 +52,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
           rotulo: "[ DASHBOARD ]",
           legenda:
             "Uso das quadras, reservas do dia e histórico — o que antes não existia em lugar nenhum",
+          video: "/videos/centro-tenistico/dashboard-centro-tenistico.mp4",
         },
         paragrafos: [
           "Centralizar a reserva teve um efeito que o cliente não tinha pedido: a operação virou número. Quantas reservas foram feitas, quais quadras e horários enchem, quem mais usa, quantas pessoas circulam por dia, quanto se cancela.",
@@ -62,6 +65,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         imagem: {
           rotulo: "[ TURMAS E AULAS ]",
           legenda: "Turmas de um professor, com horários e alunos vinculados",
+          src: "/img/centro-tenistico/turmas-centro-tenistico.png",
         },
         paragrafos: [
           "Do lado das aulas, o problema era outro: ninguém sabia dizer com precisão quantos alunos cada professor tinha, que turmas existiam e quais horários estavam comprometidos.",
@@ -75,6 +79,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         imagem: {
           rotulo: "[ PROJETO SOCIAL ]",
           legenda: "Participantes, professores responsáveis e aulas do projeto",
+          src: "/img/centro-tenistico/projetosocial-centro-tenistico.png",
         },
         paragrafos: [
           "O centro oferece aulas gratuitas para crianças das comunidades. É uma das coisas de que o clube mais se orgulha — e era justamente uma das que menos estavam registradas.",
@@ -88,6 +93,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
           rotulo: "[ COBRANÇAS ]",
           legenda:
             "Geração de cobrança integrada ao Sicredi e envio pelo WhatsApp",
+          video: "/videos/centro-tenistico/financeiro-centro-tenistico.mp4",
         },
         paragrafos: [
           "Operação era dor de cabeça; financeiro era o que tirava o sono. O centro emite boleto pelo Sicredi e, até então, alguém entrava no Internet Banking, gerava boleto por boleto e mandava cada um para o aluno certo.",
@@ -125,65 +131,160 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
       "O pedido inicial era organizar reservas e parar de gerar boleto à mão. O que ficou foi a operação do centro inteira — quadras, aulas, projeto social, fila de espera, cantina, histórico e financeiro — dentro de uma aplicação só, com rastro de quem fez o quê. O ganho não foi digitalizar o que já existia: foi transformar um processo que dependia de memória e de conversa em algo estruturado, automatizado e auditável.",
   },
 
-  "servico-ifood": {
-    titulo: "Integração iFood em escala",
-    resumo: "Node.js · RabbitMQ · Amazon MQ · AWS",
-    abertura:
-      "Um pedido que aparece no aplicativo do consumidor precisa virar entrega na rua em poucos segundos. Entre uma coisa e outra existe um serviço que fala a língua de cada plataforma de delivery e entrega para a operação logística sempre a mesma coisa: o pedido certo, uma vez só.",
+  integracoes: {
+    titulo: "Integrações",
+    resumo: "Node.js · Go · PHP/Laravel · RabbitMQ · Amazon MQ · AWS",
+    abertura: [
+      "Um pedido pode chegar por um marketplace, um sistema de gestão ou um canal próprio de vendas. Para o estabelecimento, ele precisa seguir para entrega. Para a Moovery, precisa entrar com as informações corretas, respeitar as regras da operação e manter sua origem identificada durante o processo.",
+      "Na Moovery, desenvolvi integrações com Saipos, Anota.ai, Cardápio Web, 99Food, Brendi, iFood, Sischef, Delivery Direto, Neemo, Accon, Goomer, Ipalito, Hanzo, Pedino, Menew e Open Delivery.",
+      "O desafio era fazer esse ecossistema funcionar em conjunto: receber pedidos de fontes diferentes, interpretar seus eventos e conectar cada fluxo à operação logística sem multiplicar as particularidades de cada parceiro dentro da Moovery.",
+    ],
     capitulos: [
       {
-        id: "entrada",
-        titulo: "Cada parceiro fala uma língua",
+        id: "problema",
+        titulo: "Cada integração trazia uma nova forma de trabalhar",
         imagem: {
-          rotulo: "[ PARCEIROS CONECTADOS ]",
-          legenda:
-            "iFood, 99Food, Anota.ai, Saipos, Softcom, Brendi, CardápioWeb e Open Delivery",
+          rotulo: "[ O PROBLEMA ]",
+          legenda: "Contratos, formatos e estados diferentes em cada parceiro",
         },
         paragrafos: [
-          "São oito integrações vivas, cada uma com seu contrato, seu jeito de avisar que algo mudou e sua própria ideia do que é o estado de um pedido. Algumas empurram webhook; outras precisam ser perguntadas.",
-          "A operação, do outro lado, não quer saber disso. O serviço existe para absorver essa diferença e entregar um formato único para dentro de casa.",
+          "Cada parceiro possui seu próprio contrato de comunicação: formatos de dados, autenticação, identificação de estabelecimentos, estados de pedido e regras para troca de informações.",
+          "Alguns eventos chegam por webhook. Em outros fluxos, é necessário consultar a plataforma. Uma atualização pode ser reenviada, chegar atrasada ou representar um estado diferente daquele usado internamente.",
+          "Sem uma camada para tratar essas diferenças, cada novo parceiro aumenta a complexidade da operação. O suporte precisa entender mais exceções, a manutenção fica mais dispersa e um mesmo pedido pode chegar por caminhos diferentes.",
+          "Meu trabalho foi absorver essas particularidades nas integrações e encaminhar para a Moovery as informações necessárias para operar a entrega.",
         ],
       },
       {
-        id: "fila",
-        titulo: "Nada é processado dentro da requisição",
+        id: "abrangencia",
+        titulo: "Dezesseis integrações conectadas ao mesmo objetivo",
         imagem: {
-          rotulo: "[ FLUXO DE EVENTOS ]",
-          legenda: "Recebimento, fila e consumo em background",
+          rotulo: "[ ABRANGÊNCIA ]",
+          legenda: "As 16 conexões do escopo, incluindo o padrão Open Delivery",
         },
         paragrafos: [
-          "O evento que chega é aceito e enfileirado, não processado na hora. A chamada externa responde rápido, e o trabalho pesado acontece em background, na ordem certa e com nova tentativa quando algo falha.",
-          "Esse desacoplamento com RabbitMQ e Amazon MQ é o que permite o serviço aguentar mais de 5 mil pedidos por dia para mais de 300 empresas sem que um parceiro lento derrube o restante.",
+          "Saipos · Anota.ai · Cardápio Web · 99Food · Brendi · iFood · Sischef · Delivery Direto · Neemo · Accon · Goomer · Ipalito · Hanzo · Pedino · Menew · Open Delivery.",
+          "Essas integrações ampliam os caminhos pelos quais um estabelecimento pode conectar seus pedidos à Moovery. O valor comercial está em permitir que a operação logística se conecte às ferramentas que os clientes já utilizam.",
+          "A lista representa o escopo desenvolvido. Cada conexão possui suas próprias capacidades; recebimento de pedidos, atualização de status, cancelamento e rastreamento não são funcionalidades idênticas em todos os parceiros.",
+        ],
+      },
+      {
+        id: "padronizacao",
+        titulo: "Traduzir na entrada para simplificar a operação",
+        imagem: {
+          rotulo: "[ PADRONIZAÇÃO ]",
+          legenda: "Formato do parceiro traduzido para o formato interno na entrada",
+        },
+        paragrafos: [
+          "Para fazer essas conexões trabalharem juntas, tratei as diferenças de comunicação antes de encaminhar os dados para a operação.",
+          "A integração interpreta o formato externo, identifica o estabelecimento e a origem do pedido e traduz as informações para o formato utilizado internamente. Assim, as particularidades do parceiro ficam concentradas no ponto de integração.",
+          "Essa separação permite trabalhar em duas responsabilidades: de um lado, entender o contrato de cada plataforma; do outro, aplicar o funcionamento da logística da Moovery.",
+          "O benefício é uma operação mais consistente e uma manutenção com limites mais claros. Uma mudança no formato de um parceiro pode ser tratada na conexão correspondente, reduzindo a necessidade de espalhar adaptações pelo sistema.",
+        ],
+      },
+      {
+        id: "assincrono",
+        titulo: "Receber um evento e executar o trabalho são etapas diferentes",
+        imagem: {
+          rotulo: "[ PROCESSAMENTO ASSÍNCRONO ]",
+          legenda: "Entrada do parceiro, fila e processamento em background",
+        },
+        paragrafos: [
+          "Nos fluxos assíncronos, o recebimento do evento foi separado do processamento de negócio. O evento entra na fila, e o trabalho continua em background.",
+          "Utilizei RabbitMQ e Amazon MQ para desacoplar essas etapas. Isso reduz o trabalho executado durante a chamada externa e permite tratar processamento, falhas e novas tentativas fora da requisição de entrada.",
+          "Essa estrutura ajuda a absorver variações de demanda e reduz o acoplamento entre o tempo de resposta de um parceiro e o processamento interno.",
+          "A fila faz parte da solução, mas a confiabilidade também depende das regras de consumo: controle de ordem quando necessário, tratamento de falhas e cuidado para que uma nova tentativa não gere uma nova operação indevida.",
         ],
       },
       {
         id: "duplicidade",
-        titulo: "O erro caro é o pedido em dobro",
+        titulo: "O mesmo pedido pode aparecer mais de uma vez",
         imagem: {
-          rotulo: "[ CONTROLE DE ORIGEM ]",
-          legenda: "Regras de idempotência e de origem por pedido",
+          rotulo: "[ ORIGEM E DUPLICIDADE ]",
+          legenda: "Evento reenviado encontra a operação que já existe, sem criar outra",
         },
         paragrafos: [
-          "Parceiro reenvia evento. Webhook chega fora de ordem. A mesma loja aparece conectada por dois caminhos diferentes. Sem tratamento, cada uma dessas situações vira um segundo pedido igual ao primeiro — e um entregador saindo para uma entrega que não existe.",
-          "Por isso o serviço carrega regras de idempotência e controle de origem: o mesmo pedido não entra duas vezes, e reprocessamento não gera operação nova.",
+          "Reenvio de webhook não significa um novo pedido. Uma nova tentativa de processamento também não deveria criar outra entrega.",
+          "Além disso, um estabelecimento pode utilizar ferramentas conectadas entre si. Isso torna necessário distinguir o canal que transmitiu o evento da origem do pedido.",
+          "Implementei regras de idempotência e controle de origem para tratar esses cenários. O objetivo é reconhecer o que já foi recebido ou processado e impedir que repetições gerem operações duplicadas.",
+          "Na prática, esse cuidado protege a operação contra solicitações indevidas, retrabalho do suporte e o risco de mobilizar entregadores para a mesma demanda mais de uma vez.",
         ],
       },
       {
-        id: "observabilidade",
-        titulo: "Integração quebra em silêncio",
+        id: "continuidade",
+        titulo: "A conexão precisa acompanhar o que acontece depois",
         imagem: {
-          rotulo: "[ SAÚDE DAS INTEGRAÇÕES ]",
-          legenda:
-            "Disponibilidade, última comunicação e último pedido por parceiro",
+          rotulo: "[ CONTINUIDADE DO FLUXO ]",
+          legenda: "99Food: endpoints logísticos, webhooks e rastreamento do entregador",
         },
         paragrafos: [
-          "Quando uma integração cai, normalmente nada estoura: os pedidos simplesmente param de chegar, e o primeiro a perceber é o cliente ao telefone.",
-          "O acompanhamento que montei olha disponibilidade, última comunicação, último pedido recebido, falha de autenticação, timeout e erro de comunicação — para o problema ter nome antes de virar ligação.",
+          "O trabalho de integração continua depois da entrada do pedido. Conforme o contrato de cada parceiro, existem atualizações e comunicações necessárias para manter os sistemas alinhados.",
+          "Na integração com a 99Food, desenvolvi endpoints logísticos, tratamento de webhooks e envio de informações de rastreamento com a localização do entregador.",
+          "Esse é um exemplo concreto de integração que acompanha a execução logística. O pedido entra na Moovery, a operação evolui e as informações previstas no contrato retornam à plataforma.",
+          "No conjunto das integrações, o cuidado é respeitar os eventos e as capacidades de cada parceiro, sem assumir que todos trabalham com os mesmos estados ou oferecem o mesmo fluxo.",
+        ],
+      },
+      {
+        id: "escala",
+        titulo: "Centenas de conexões, milhares de pedidos e uma operação compartilhada",
+        imagem: {
+          rotulo: "[ ESCALA E PROCESSAMENTO ]",
+          legenda: "599 vínculos com empresas, 497 ativos, em 17 integrações do painel",
+        },
+        paragrafos: [
+          "O painel reúne 17 integrações cadastradas e 599 vínculos com empresas, dos quais 497 estão ativos. Além do iFood, são 188 vínculos distribuídos pelas demais integrações, com 165 ativos.",
+          "Cardápio Web aparece com 95 vínculos, Anota.ai com 36, Saipos com 12 e Neemo com 9. A operação também recebe conexões de Brendi, 99Food, Delivery Direto, Accon, Sischef, Pedino, Ipalito, Hanzo, Menuvem e Goomer.",
+          "A escala envolve diferentes fontes enviando pedidos e atualizações para uma mesma operação. Cada parceiro acrescenta formatos, regras e situações de falha que precisam ser tratados sem comprometer a consistência dos pedidos.",
+          "Para lidar com essa carga, separei o recebimento dos eventos do processamento de negócio. Nos fluxos assíncronos, utilizei RabbitMQ e Amazon MQ para enfileirar o trabalho e executá-lo em background, reduzindo o processamento concentrado nas requisições externas.",
+          "A fila cria uma separação entre a chegada dos eventos e sua execução. Isso permite organizar o trabalho pendente e tratar novas tentativas sem depender de uma chamada externa permanecer aberta durante todo o processamento.",
+          "Também implementei idempotência e controle de origem para evitar que reenvios e reprocessamentos gerassem solicitações duplicadas. O tratamento de falhas e o acompanhamento da comunicação com os parceiros completam esse fluxo, dando contexto para identificar interrupções e recuperar o processamento.",
+          "O resultado é uma arquitetura que ajuda a absorver variações de demanda e reduz o risco de sobrecarga causada pelo processamento imediato dos eventos, mantendo controle sobre o que entra e o que já foi executado.",
+          "Volume informado: média aproximada de 5 mil pedidos por dia por integração. Nas 16 integrações do escopo, isso representa uma estimativa de 80 mil pedidos por dia, caso todas mantenham esse volume no mesmo período — uma soma que não equivale a pedidos únicos nem a entregas concluídas.",
+        ],
+      },
+      {
+        id: "visibilidade",
+        titulo: "Saber onde a comunicação parou",
+        imagem: {
+          rotulo: "[ VISIBILIDADE OPERACIONAL ]",
+          legenda: "Disponibilidade, última comunicação, último pedido, autenticação e timeouts",
+        },
+        paragrafos: [
+          "Uma integração pode apresentar falha sem provocar um erro visível na tela. Os pedidos deixam de chegar, a autenticação falha ou uma plataforma demora a responder.",
+          "Estruturei o acompanhamento de disponibilidade, última comunicação, último pedido recebido, falhas de autenticação, timeouts e erros de comunicação.",
+          "Essas informações ajudam a localizar a interrupção e dão contexto para a investigação. Em vez de tratar todo incidente como “o pedido não entrou”, passa a ser possível identificar em qual etapa a comunicação apresentou problema.",
+          "Essa visibilidade apoia tanto a manutenção técnica quanto o atendimento à operação.",
+        ],
+      },
+      {
+        id: "impacto",
+        titulo: "Mais conexões comerciais e menos intervenção manual",
+        imagem: {
+          rotulo: "[ IMPACTO ]",
+          legenda: "Ecossistema ampliado e menos correção manual entre sistemas",
+        },
+        paragrafos: [
+          "As integrações ampliaram o ecossistema de plataformas conectadas à Moovery e reduziram a necessidade de intervenção manual nos fluxos automatizados.",
+          "Para os estabelecimentos, isso facilita conectar seus canais de pedidos à operação de entrega. Para a Moovery, amplia as possibilidades de atender clientes que utilizam sistemas diferentes.",
+          "Dentro da operação, os ganhos estão na padronização das informações, no tratamento de eventos repetidos, na possibilidade de reprocessar falhas com controle e na visibilidade sobre a saúde das conexões.",
+          "Esses resultados têm efeito direto sobre o trabalho diário: menos necessidade de corrigir informações entre sistemas e mais contexto para resolver problemas quando eles acontecem.",
+        ],
+      },
+      {
+        id: "atuacao",
+        titulo: "Do contrato externo à sustentação em produção",
+        imagem: {
+          rotulo: "[ MINHA ATUAÇÃO ]",
+          legenda: "APIs, webhooks, filas, idempotência e diagnóstico de falhas",
+        },
+        paragrafos: [
+          "Minha atuação envolveu o entendimento das regras de integração, desenvolvimento das conexões, tratamento dos eventos e acompanhamento do comportamento em produção.",
+          "Trabalhei com APIs, webhooks, processamento assíncrono, idempotência, controle de origem e diagnóstico de falhas, utilizando tecnologias como Node.js, Go, PHP/Laravel, RabbitMQ e AWS em diferentes partes do ecossistema.",
+          "O resultado é um conjunto de integrações que conecta plataformas diferentes à logística da Moovery, preservando as particularidades de cada parceiro e buscando consistência na operação interna.",
         ],
       },
     ],
     fecho:
-      "É um serviço que quase ninguém vê funcionando e que todo mundo sente quando para. 300+ empresas integradas e 5 mil+ pedidos por dia dependem de ele ser chato com duplicidade, ordem e tentativa.",
+      "Por trás de um pedido que chega e segue para entrega, existe um trabalho contínuo para manter sistemas independentes se comunicando de forma confiável.",
   },
 
   "antecipacao-repasses": {

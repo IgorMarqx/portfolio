@@ -157,20 +157,21 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
     ],
   },
 
-  "servico-ifood": {
-    resumo: "Node.js · RabbitMQ · Amazon MQ · SQS · AWS · Docker",
+  integracoes: {
+    resumo: "Node.js · Go · PHP/Laravel · RabbitMQ · Amazon MQ · AWS",
     secoes: [
       {
         id: "stack",
-        titulo: "Stack do serviço",
+        titulo: "Stack das integrações",
         imagem: {
-          rotulo: "[ SERVIÇO ]",
-          legenda: "Serviço Node.js entre as plataformas e a operação",
+          rotulo: "[ INTEGRAÇÕES ]",
+          legenda: "Conexões entre as plataformas de delivery e a operação logística",
         },
         texto:
-          "Serviço em Node.js dedicado às integrações, separado do monolito PHP para poder escalar e falhar sozinho.",
+          "As integrações ficam distribuídas entre Node.js, Go e PHP/Laravel, conforme a parte do ecossistema. Cada conexão concentra as particularidades do parceiro e entrega à operação o formato interno.",
         itens: [
-          { nome: "Node.js / TypeScript", papel: "Serviço de integração" },
+          { nome: "Node.js / TypeScript", papel: "Conexões e tratamento de webhooks" },
+          { nome: "Go", papel: "Partes do ecossistema de integração" },
           {
             nome: "PHP / Laravel",
             papel: "Aplicação legada que consome o resultado",

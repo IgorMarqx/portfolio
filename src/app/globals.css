@@ -41,6 +41,11 @@ body {
 }
 
 @layer components {
+  /* Legenda da tela cheia: cada parágrafo novo sobe e aparece, como em filme. */
+  .legenda-entra {
+    animation: legendaEntra 350ms ease-out;
+  }
+
   /* Malha de fundo do terminal: linhas finas atrás de todo o conteúdo. */
   .grade {
     background-image:
@@ -96,6 +101,23 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .animar-progresso {
     width: 100%;
+    animation: none;
+  }
+}
+
+@keyframes legendaEntra {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .legenda-entra {
     animation: none;
   }
 }

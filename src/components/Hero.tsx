@@ -30,7 +30,7 @@ export function Hero() {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <a
               href="#projetos"
-              className="flex items-center justify-center gap-2 bg-accent px-5 py-4 text-xs font-semibold tracking-[0.15em] text-base transition-opacity hover:opacity-90 sm:justify-start sm:py-3"
+              className="flex items-center justify-center gap-2 bg-accent px-5 py-4 text-xs font-semibold tracking-[0.15em] text-canvas transition-opacity hover:opacity-90 sm:justify-start sm:py-3"
             >
               VER PROJETOS <span aria-hidden>↗</span>
             </a>

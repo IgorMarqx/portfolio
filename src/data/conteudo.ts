@@ -20,7 +20,7 @@ export const perfil = {
 export const metricas = [
   { valor: "26 mil+", rotulo: "entregadores impactados" },
   { valor: "300+", rotulo: "empresas integradas" },
-  { valor: "5 mil+", rotulo: "pedidos/dia em serviço iFood" },
+  { valor: "16", rotulo: "integrações de delivery" },
 ];
 
 export const experiencias = [
@@ -33,8 +33,8 @@ export const experiencias = [
     destaques: [
       "Antecipação e pagamentos para entregadores integrados à IUGU, com processamento assíncrono via RabbitMQ.",
       "Pagamentos agendados e garantidos com AWS EventBridge Scheduler e Amazon MQ, fora do fluxo síncrono da aplicação.",
-      "Serviço iFood em Node.js atendendo 300+ empresas e 5 mil+ pedidos por dia.",
-      "Integrações com iFood, 99Food, Anota.ai, Saipos, Softcom, Brendi, CardápioWeb e Open Delivery.",
+      "16 integrações de delivery — iFood, 99Food, Anota.ai, Saipos, Cardápio Web, Open Delivery e outras — com 599 vínculos com empresas, 497 ativos.",
+      "Recebimento separado do processamento com RabbitMQ e Amazon MQ, em Node.js, Go e PHP/Laravel.",
       "Regras de idempotência e controle de origem para evitar duplicidade e reprocessamento de pedidos.",
       "Financeiro de entregadores: saldos, transações, repasses, ciclos, créditos, débitos e conciliação.",
       "Modernização do legado PHP/Laravel com novas capacidades desacopladas em Go e Node.js.",
@@ -70,6 +70,8 @@ export type Projeto = {
   nome: string;
   descricao: string;
   visual: string;
+  /** Vídeo mudo em laço no lugar do rótulo `visual` do cartão. */
+  miniatura?: string;
   tags: string[];
   impacto: string;
 };
@@ -83,21 +85,22 @@ export const projetos: Projeto[] = [
     descricao:
       "Plataforma que centraliza a operação de um clube com 100+ sócios: reservas das 5 quadras, turmas, mensalidades, financeiro, cantina e estoque.",
     visual: "[ RESERVAS ]",
+    miniatura: "/videos/centro-tenistico/reservas-centro-tenistico.mp4",
     tags: ["Laravel", "React", "MySQL", "S3"],
     impacto:
       "Substitui controles separados por uma plataforma única, com rastreabilidade para secretaria e diretoria.",
   },
   {
-    slug: "servico-ifood",
+    slug: "integracoes",
     numero: "02",
-    categoria: "API / INTEGRAÇÕES",
-    nome: "Serviço iFood",
+    categoria: "APIS / INTEGRAÇÕES / LOGÍSTICA",
+    nome: "Integrações",
     descricao:
-      "Serviço em Node.js que conecta plataformas de delivery à operação logística, com webhooks, filas e controle de duplicidade.",
-    visual: "[ PEDIDOS/DIA ]",
-    tags: ["Node.js", "RabbitMQ", "AWS"],
+      "Integrações com 16 plataformas e padrões do ecossistema de delivery, conectando pedidos à operação logística da Moovery com padronização, processamento assíncrono e controle de duplicidade.",
+    visual: "[ 16 INTEGRAÇÕES ]",
+    tags: ["Node.js", "Go", "PHP/Laravel", "RabbitMQ", "Amazon MQ", "AWS"],
     impacto:
-      "300+ empresas integradas e mais de 5 mil pedidos processados por dia.",
+      "16 integrações desenvolvidas. No painel, 599 vínculos com empresas, sendo 497 ativos.",
   },
   {
     slug: "antecipacao-repasses",
