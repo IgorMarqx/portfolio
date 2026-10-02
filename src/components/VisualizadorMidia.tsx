@@ -257,7 +257,7 @@ export function VisualizadorMidia({
   const ampliado = vista.escala > 1;
   const numero = (valor: number) => String(valor).padStart(2, "0");
   const botao =
-    "flex h-9 min-w-9 items-center justify-center border border-white/15 px-2 text-xs font-semibold tracking-[0.1em] text-white/80 transition-colors hover:border-accent hover:text-accent disabled:pointer-events-none disabled:opacity-30";
+    "flex h-9 min-w-9 items-center justify-center rounded-full border border-white/15 px-3 text-xs font-semibold text-white/80 transition-colors hover:border-accent hover:text-accent disabled:pointer-events-none disabled:opacity-30";
 
   return (
     <div
@@ -381,7 +381,7 @@ export function VisualizadorMidia({
             />
           ) : (
             <div className="flex h-full flex-col items-center justify-center gap-3 px-6 text-center">
-              <span className="text-[11px] tracking-[0.2em] text-accent">
+              <span className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">
                 {numero(passoAtual + 1)} — {imagem.rotulo}
               </span>
               <span className="max-w-2xl text-2xl font-bold leading-snug text-white sm:text-4xl">
@@ -408,7 +408,7 @@ export function VisualizadorMidia({
         // Faixa própria, fora do vídeo: tela branca atrás não apaga o texto.
         // Altura fixa para o vídeo não pular; o texto rola dentro dela.
         <div className="flex h-44 shrink-0 flex-col items-center bg-black px-4 pt-3 sm:h-52">
-          <p className="flex w-full max-w-4xl flex-wrap items-center gap-x-3 text-[10px] tracking-[0.2em] text-accent">
+          <p className="flex w-full max-w-4xl flex-wrap items-center gap-x-3 text-xs font-semibold tracking-[0.14em] text-accent">
             <span>
               {numero(passoAtual + 1)} — {trecho.titulo.toUpperCase()}
             </span>
@@ -442,7 +442,7 @@ export function VisualizadorMidia({
         </div>
       ) : null}
 
-      <p className="hidden border-t border-white/10 px-4 py-2 text-center text-[11px] text-white/50 sm:block">
+      <p className="hidden border-t border-white/10 px-4 py-2 text-center text-xs text-white/60 sm:block">
         Role ou pince para dar zoom · arraste para mover · duplo clique alterna · CC mostra o texto
       </p>
     </div>
