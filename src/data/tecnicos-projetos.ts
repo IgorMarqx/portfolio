@@ -226,11 +226,6 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
         imagem: { rotulo: "PIPELINE", legenda: "Deploy e acompanhamento" },
         itens: [
           {
-            nome: "GitHub Actions / GitLab",
-            papel: "Pipeline de build e deploy",
-            confirmar: true,
-          },
-          {
             nome: "Logs e troubleshooting",
             papel: "Investigação de incidente em produção",
           },
@@ -390,7 +385,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
           { nome: "GitHub Actions", papel: "Pipeline de CI/CD e publicação na VPS" },
           { nome: "Docker + Docker Compose", papel: "Ambiente reproduzível da aplicação" },
           { nome: "Vite 7", papel: "Build do front" },
-          { nome: "MySQL", papel: "Motor do banco relacional", confirmar: true },
+          { nome: "MySQL", papel: "Banco relacional da aplicação, no cluster gerenciado" },
         ],
       },
     ],
@@ -514,31 +509,6 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
           {
             nome: "Geolocalização",
             papel: "Informação de campo vinculada ao registro",
-          },
-        ],
-      },
-      {
-        id: "infra",
-        titulo: "Infraestrutura e entrega",
-        imagem: {
-          rotulo: "HOSPEDAGEM",
-          legenda: "Onde as aplicações rodam",
-        },
-        itens: [
-          {
-            nome: "Hospedagem",
-            papel: "Servidor das aplicações",
-            confirmar: true,
-          },
-          {
-            nome: "Armazenamento de documentos",
-            papel: "Notas e comprovantes",
-            confirmar: true,
-          },
-          {
-            nome: "CI/CD",
-            papel: "Publicação das aplicações",
-            confirmar: true,
           },
         ],
       },
