@@ -30,7 +30,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
         id: "stack",
         titulo: "Stack da aplicação",
         imagem: {
-          rotulo: "[ ARQUITETURA ]",
+          rotulo: "ARQUITETURA",
           legenda:
             "Monolito Laravel servindo React pelo Inertia, sem API separada",
         },
@@ -63,7 +63,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
         id: "financeiro",
         titulo: "Cobrança: Sicredi de ponta a ponta",
         imagem: {
-          rotulo: "[ FLUXO DE COBRANÇA ]",
+          rotulo: "FLUXO DE COBRANÇA",
           legenda:
             "Geração do boleto, retorno por webhook e baixa no financeiro",
         },
@@ -90,7 +90,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
         id: "infra",
         titulo: "Onde roda",
         imagem: {
-          rotulo: "[ INFRAESTRUTURA ]",
+          rotulo: "INFRAESTRUTURA",
           legenda: "VPS na DigitalOcean, Nginx, MySQL e bucket S3",
         },
         texto:
@@ -115,7 +115,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
         id: "entrega",
         titulo: "Como vai para produção",
         imagem: {
-          rotulo: "[ PIPELINE ]",
+          rotulo: "PIPELINE",
           legenda: "Do push ao deploy",
         },
         texto:
@@ -138,7 +138,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
         id: "decisoes",
         titulo: "Decisões que valem contar",
         imagem: {
-          rotulo: "[ PERMISSÕES ]",
+          rotulo: "PERMISSÕES",
           legenda: "Mesma tela, escopo diferente por perfil",
         },
         texto:
@@ -164,7 +164,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
         id: "stack",
         titulo: "Stack das integrações",
         imagem: {
-          rotulo: "[ INTEGRAÇÕES ]",
+          rotulo: "INTEGRAÇÕES",
           legenda: "Conexões entre as plataformas de delivery e a operação logística",
         },
         texto:
@@ -184,7 +184,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
         id: "mensageria",
         titulo: "Mensageria",
         imagem: {
-          rotulo: "[ FILAS ]",
+          rotulo: "FILAS",
           legenda: "Recebimento, fila e consumo em background",
         },
         texto:
@@ -208,7 +208,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
       {
         id: "infra",
         titulo: "Infraestrutura",
-        imagem: { rotulo: "[ AWS ]", legenda: "Onde o serviço roda" },
+        imagem: { rotulo: "AWS", legenda: "Onde o serviço roda" },
         itens: [
           { nome: "EC2", papel: "Execução do serviço" },
           { nome: "RDS", papel: "Banco gerenciado" },
@@ -223,7 +223,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
       {
         id: "entrega",
         titulo: "Entrega e observabilidade",
-        imagem: { rotulo: "[ PIPELINE ]", legenda: "Deploy e acompanhamento" },
+        imagem: { rotulo: "PIPELINE", legenda: "Deploy e acompanhamento" },
         itens: [
           {
             nome: "GitHub Actions / GitLab",
@@ -251,7 +251,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
         id: "stack",
         titulo: "Stack",
         imagem: {
-          rotulo: "[ SERVIÇOS ]",
+          rotulo: "SERVIÇOS",
           legenda: "Go e PHP dividindo o fluxo financeiro",
         },
         itens: [
@@ -270,7 +270,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
         id: "agendamento",
         titulo: "Agendamento e filas",
         imagem: {
-          rotulo: "[ AGENDAMENTO ]",
+          rotulo: "AGENDAMENTO",
           legenda: "EventBridge disparando a rodada",
         },
         itens: [
@@ -288,7 +288,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
         id: "pagamentos",
         titulo: "Provedores de pagamento",
         imagem: {
-          rotulo: "[ WEBHOOKS ]",
+          rotulo: "WEBHOOKS",
           legenda: "Retornos financeiros conciliados",
         },
         itens: [
@@ -309,7 +309,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
         id: "stack",
         titulo: "Stack",
         imagem: {
-          rotulo: "[ APLICAÇÃO ]",
+          rotulo: "APLICAÇÃO",
           legenda: "Aplicação PHP com banco relacional",
         },
         itens: [
@@ -327,7 +327,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
       {
         id: "infra",
         titulo: "Infraestrutura e entrega",
-        imagem: { rotulo: "[ HOSPEDAGEM ]", legenda: "Onde a aplicação roda" },
+        imagem: { rotulo: "HOSPEDAGEM", legenda: "Onde a aplicação roda" },
         itens: [
           {
             nome: "Hospedagem",
@@ -352,7 +352,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
         id: "stack",
         titulo: "Stack",
         imagem: {
-          rotulo: "[ APLICAÇÃO ]",
+          rotulo: "APLICAÇÃO",
           legenda: "Registro de jornada e relatórios",
         },
         itens: [
@@ -363,7 +363,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
       {
         id: "infra",
         titulo: "Infraestrutura e entrega",
-        imagem: { rotulo: "[ HOSPEDAGEM ]", legenda: "Onde a aplicação roda" },
+        imagem: { rotulo: "HOSPEDAGEM", legenda: "Onde a aplicação roda" },
         itens: [
           {
             nome: "Hospedagem",
@@ -383,7 +383,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
         id: "stack",
         titulo: "Stack",
         imagem: {
-          rotulo: "[ APLICAÇÕES ]",
+          rotulo: "APLICAÇÕES",
           legenda: "Conjunto de sistemas administrativos",
         },
         itens: [
@@ -400,7 +400,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
         id: "infra",
         titulo: "Infraestrutura e entrega",
         imagem: {
-          rotulo: "[ HOSPEDAGEM ]",
+          rotulo: "HOSPEDAGEM",
           legenda: "Onde as aplicações rodam",
         },
         itens: [
