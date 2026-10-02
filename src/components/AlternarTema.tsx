@@ -36,11 +36,11 @@ export function AlternarTema() {
         tema === "dark" ? "Mudar para tema claro" : "Mudar para tema escuro"
       }
       title={tema === "dark" ? "Tema claro" : "Tema escuro"}
-      className="flex h-8 items-center gap-2 border border-line px-2 text-[11px] tracking-[0.15em] text-muted transition-colors hover:border-accent hover:text-accent"
+      className="flex h-9 items-center gap-2 rounded-full border border-line px-3 text-sm text-muted transition-colors hover:border-accent hover:text-accent"
     >
       <span aria-hidden>{tema === "dark" ? "☾" : "☀"}</span>
       <span className="hidden sm:inline">
-        {tema === "dark" ? "DARK" : "LIGHT"}
+        {tema === "dark" ? "Escuro" : "Claro"}
       </span>
     </button>
   );

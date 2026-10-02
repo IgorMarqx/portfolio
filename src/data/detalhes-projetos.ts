@@ -34,7 +34,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "quadras",
         titulo: "Começou pelas quadras",
         imagem: {
-          rotulo: "[ MAPA DE RESERVAS ]",
+          rotulo: "MAPA DE RESERVAS",
           legenda:
             "Grade de horários das cinco quadras, com as regras de limite já aplicadas",
           video: "/videos/centro-tenistico/reservas-centro-tenistico.mp4",
@@ -49,7 +49,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "visibilidade",
         titulo: "E então deu para ver o que acontecia",
         imagem: {
-          rotulo: "[ DASHBOARD ]",
+          rotulo: "DASHBOARD",
           legenda:
             "Uso das quadras, reservas do dia e histórico — o que antes não existia em lugar nenhum",
           video: "/videos/centro-tenistico/dashboard-centro-tenistico.mp4",
@@ -63,7 +63,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "aulas",
         titulo: "Cada professor com seus alunos",
         imagem: {
-          rotulo: "[ TURMAS E AULAS ]",
+          rotulo: "TURMAS E AULAS",
           legenda: "Turmas de um professor, com horários e alunos vinculados",
           src: "/img/centro-tenistico/turmas-centro-tenistico.png",
         },
@@ -77,7 +77,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "social",
         titulo: "O projeto social entrou na mesma casa",
         imagem: {
-          rotulo: "[ PROJETO SOCIAL ]",
+          rotulo: "PROJETO SOCIAL",
           legenda: "Participantes, professores responsáveis e aulas do projeto",
           src: "/img/centro-tenistico/projetosocial-centro-tenistico.png",
         },
@@ -90,7 +90,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "boletos",
         titulo: "O maior problema era o boleto",
         imagem: {
-          rotulo: "[ COBRANÇAS ]",
+          rotulo: "COBRANÇAS",
           legenda:
             "Geração de cobrança integrada ao Sicredi e envio pelo WhatsApp",
           video: "/videos/centro-tenistico/financeiro-centro-tenistico.mp4",
@@ -105,7 +105,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "cantina",
         titulo: "Quando a cantina virou financeiro",
         imagem: {
-          rotulo: "[ CANTINA E ESTOQUE ]",
+          rotulo: "CANTINA E ESTOQUE",
           legenda:
             "Consumo lançado para o associado, com produto, preço e estoque",
         },
@@ -118,7 +118,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "permissoes",
         titulo: "Cada um enxerga o que é seu",
         imagem: {
-          rotulo: "[ USUÁRIOS E PERMISSÕES ]",
+          rotulo: "USUÁRIOS E PERMISSÕES",
           legenda: "Perfis de diretoria, secretaria, professor e associado",
         },
         paragrafos: [
@@ -144,7 +144,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "problema",
         titulo: "Cada integração trazia uma nova forma de trabalhar",
         imagem: {
-          rotulo: "[ O PROBLEMA ]",
+          rotulo: "O PROBLEMA",
           legenda: "Contratos, formatos e estados diferentes em cada parceiro",
         },
         paragrafos: [
@@ -158,7 +158,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "abrangencia",
         titulo: "Dezesseis integrações conectadas ao mesmo objetivo",
         imagem: {
-          rotulo: "[ ABRANGÊNCIA ]",
+          rotulo: "ABRANGÊNCIA",
           legenda: "As 16 conexões do escopo, incluindo o padrão Open Delivery",
         },
         paragrafos: [
@@ -171,7 +171,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "padronizacao",
         titulo: "Traduzir na entrada para simplificar a operação",
         imagem: {
-          rotulo: "[ PADRONIZAÇÃO ]",
+          rotulo: "PADRONIZAÇÃO",
           legenda: "Formato do parceiro traduzido para o formato interno na entrada",
         },
         paragrafos: [
@@ -185,7 +185,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "assincrono",
         titulo: "Receber um evento e executar o trabalho são etapas diferentes",
         imagem: {
-          rotulo: "[ PROCESSAMENTO ASSÍNCRONO ]",
+          rotulo: "PROCESSAMENTO ASSÍNCRONO",
           legenda: "Entrada do parceiro, fila e processamento em background",
         },
         paragrafos: [
@@ -199,7 +199,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "duplicidade",
         titulo: "O mesmo pedido pode aparecer mais de uma vez",
         imagem: {
-          rotulo: "[ ORIGEM E DUPLICIDADE ]",
+          rotulo: "ORIGEM E DUPLICIDADE",
           legenda: "Evento reenviado encontra a operação que já existe, sem criar outra",
         },
         paragrafos: [
@@ -213,7 +213,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "continuidade",
         titulo: "A conexão precisa acompanhar o que acontece depois",
         imagem: {
-          rotulo: "[ CONTINUIDADE DO FLUXO ]",
+          rotulo: "CONTINUIDADE DO FLUXO",
           legenda: "99Food: endpoints logísticos, webhooks e rastreamento do entregador",
         },
         paragrafos: [
@@ -227,7 +227,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "escala",
         titulo: "Centenas de conexões, milhares de pedidos e uma operação compartilhada",
         imagem: {
-          rotulo: "[ ESCALA E PROCESSAMENTO ]",
+          rotulo: "ESCALA E PROCESSAMENTO",
           legenda: "599 vínculos com empresas, 497 ativos, em 17 integrações do painel",
         },
         paragrafos: [
@@ -245,7 +245,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "visibilidade",
         titulo: "Saber onde a comunicação parou",
         imagem: {
-          rotulo: "[ VISIBILIDADE OPERACIONAL ]",
+          rotulo: "VISIBILIDADE OPERACIONAL",
           legenda: "Disponibilidade, última comunicação, último pedido, autenticação e timeouts",
         },
         paragrafos: [
@@ -259,7 +259,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "impacto",
         titulo: "Mais conexões comerciais e menos intervenção manual",
         imagem: {
-          rotulo: "[ IMPACTO ]",
+          rotulo: "IMPACTO",
           legenda: "Ecossistema ampliado e menos correção manual entre sistemas",
         },
         paragrafos: [
@@ -273,7 +273,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "atuacao",
         titulo: "Do contrato externo à sustentação em produção",
         imagem: {
-          rotulo: "[ MINHA ATUAÇÃO ]",
+          rotulo: "MINHA ATUAÇÃO",
           legenda: "APIs, webhooks, filas, idempotência e diagnóstico de falhas",
         },
         paragrafos: [
@@ -297,7 +297,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "assincrono",
         titulo: "Dinheiro sai da frente da tela",
         imagem: {
-          rotulo: "[ FLUXO DE ANTECIPAÇÃO ]",
+          rotulo: "FLUXO DE ANTECIPAÇÃO",
           legenda: "Pedido, fila e processamento fora do fluxo síncrono",
         },
         paragrafos: [
@@ -309,7 +309,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "agendamento",
         titulo: "Pagamento com hora marcada",
         imagem: {
-          rotulo: "[ AGENDAMENTO ]",
+          rotulo: "AGENDAMENTO",
           legenda: "EventBridge Scheduler disparando a rodada de pagamentos",
         },
         paragrafos: [
@@ -321,7 +321,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "conciliacao",
         titulo: "O difícil é fechar a conta",
         imagem: {
-          rotulo: "[ EXTRATO E CICLOS ]",
+          rotulo: "EXTRATO E CICLOS",
           legenda: "Saldos, transações, repasses e ciclos do entregador",
         },
         paragrafos: [
@@ -336,72 +336,237 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
 
   "compras-licitacoes": {
     titulo: "Sistema de Compras e Licitações",
-    resumo: "PHP · MySQL · Processos administrativos",
-    abertura:
-      "Comprar dentro de um órgão é menos sobre a compra e mais sobre conseguir provar depois como ela aconteceu. O processo passava por planilha, papel e combinação informal — e quem queria saber em que pé estava uma solicitação dependia de achar a pessoa certa e de ela lembrar.",
+    resumo: "Laravel · React · Inertia · Reverb · WhatsApp · S3",
+    abertura: [
+      "Comprar dentro de um órgão público é menos sobre a compra e mais sobre conseguir provar depois como ela aconteceu. Os pedidos de compra e de serviço das secretarias circulavam em papel e planilha, sem status, sem histórico e sem prova de entrega.",
+      "Quem queria saber em que pé estava um pedido dependia de achar a pessoa certa e de ela lembrar. A plataforma levou o ciclo inteiro para um lugar só: da solicitação à entrega comprovada com foto, passando por aprovação, fornecedor e nota fiscal.",
+    ],
     capitulos: [
       {
-        id: "solicitacao",
-        titulo: "Toda solicitação passa a ter dono e etapa",
+        id: "solicitacoes",
+        titulo: "Todo pedido ganha número e estado",
         imagem: {
-          rotulo: "[ PROCESSOS ]",
-          legenda: "Lista de solicitações por etapa e responsável",
+          rotulo: "SOLICITAÇÕES",
+          legenda: "Lista de solicitações com tipo, secretaria, fornecedor, valor e status",
+          src: "/img/compras-licitacoes/solicitacoes-compras.png",
         },
         paragrafos: [
-          "A solicitação entra no sistema e nasce com responsável e etapa. Nada avança por mensagem paralela: o estado do processo é o que está registrado.",
-          "Fornecedores, valores e propostas ficam junto do processo a que pertencem, e não em arquivos soltos que precisam ser reunidos de novo toda vez.",
+          "Cada solicitação nasce com um número sequencial por ano e entra num fluxo de oito status: rascunho, enviada, aprovada, em compra, entregue parcial, entregue, devolvida e cancelada. O estado do pedido passa a ser o que está registrado, não o que alguém lembra.",
+          "A lista junta o que antes ficava espalhado: tipo, secretaria, fornecedor, justificativa, valor estimado e para quem é o pedido. A busca procura em todos os campos de uma vez, e os filtros por tipo e status reduzem a fila ao que importa naquele momento.",
+        ],
+      },
+      {
+        id: "nova",
+        titulo: "O pedido já nasce completo",
+        imagem: {
+          rotulo: "NOVA SOLICITAÇÃO",
+          legenda: "Formulário de compra com secretaria, fornecedor, prazo, local de entrega e itens",
+          src: "/img/compras-licitacoes/nova-compras.png",
+        },
+        paragrafos: [
+          "A solicitação é de compra ou de serviço, e o formulário pede de saída o que antes chegava aos pedaços: secretaria, fornecedor, justificativa, prazo desejado, local de entrega, destinatário e quem vai retirar.",
+          "Os itens entram com descrição, unidade, quantidade e valor unitário. O subtotal de cada linha e o total estimado da solicitação são calculados na hora. Um pedido parecido com outro anterior pode ser duplicado e volta como rascunho, pronto para ajuste.",
+        ],
+      },
+      {
+        id: "detalhe",
+        titulo: "Tudo de uma solicitação numa tela só",
+        imagem: {
+          rotulo: "DETALHE",
+          legenda: "Visão completa da solicitação e dos itens vinculados",
+          src: "/img/compras-licitacoes/detalhe-compras.png",
+        },
+        paragrafos: [
+          "O detalhe reúne o pedido inteiro: quem pediu, para qual secretaria, de qual fornecedor, com que prazo, onde entregar e por que comprar. Os itens aparecem com subtotal e total no rodapé.",
+          "Dali sai a ordem de compra em PDF, com os itens e o local de entrega. É o documento que o fornecedor recebe, gerado a partir do mesmo registro que o aprovador conferiu.",
+        ],
+      },
+      {
+        id: "whatsapp",
+        titulo: "O aviso sai sozinho",
+        imagem: {
+          rotulo: "NOTIFICAÇÕES",
+          legenda: "Configuração de aviso por WhatsApp: mensagem, status de disparo e números",
+          src: "/img/compras-licitacoes/whatsapp-compras.png",
+        },
+        paragrafos: [
+          "Cada mudança de status pode avisar as pessoas certas por WhatsApp. A configuração define quais status disparam, para quais números, e com qual mensagem — um template editável com variáveis como o número da solicitação, o status novo e o anterior.",
+          "Nenhuma tela precisa lembrar de avisar. Um observer no model percebe a troca de status e põe o envio na fila, com três tentativas, intervalo entre elas e registro de falha. Os telefones são normalizados e deduplicados antes de sair.",
         ],
       },
       {
         id: "historico",
-        titulo: "O histórico é o produto",
+        titulo: "Entrega com prova, não com palavra",
         imagem: {
-          rotulo: "[ MOVIMENTAÇÕES ]",
-          legenda: "Linha do tempo de um processo, com quem moveu e quando",
+          rotulo: "HISTÓRICO",
+          legenda: "Resumo do histórico: total, entregues, canceladas e valor estimado",
+          src: "/img/compras-licitacoes/historico-compras.png",
         },
         paragrafos: [
-          "Cada movimentação fica gravada com autor e data. Meses depois, reconstituir uma decisão deixa de ser um exercício de arqueologia.",
-          "Sobre esse registro vêm os relatórios administrativos e o controle de permissões por perfil — cada um enxerga o que a função pede.",
+          "O fornecedor recebe as ordens destinadas a ele, registra a nota fiscal com data de emissão e arquivo anexado e comprova a retirada com uma foto tirada pela câmera do próprio aparelho. Nota e foto ficam guardadas no S3, e dá para abrir qualquer anexo sem sair da tela.",
+          "O histórico fecha a conta por fornecedor: quantas solicitações passaram, quantas foram entregues, quantas canceladas e quanto isso soma. A pergunta \"foi entregue?\" passa a ter resposta com documento.",
+        ],
+      },
+      {
+        id: "relatorios",
+        titulo: "Relatório que responde a pergunta feita",
+        imagem: {
+          rotulo: "RELATÓRIOS",
+          legenda: "Filtros combináveis, valor total filtrado e exportação em PDF",
+          src: "/img/compras-licitacoes/relatorios-compras.png",
+        },
+        paragrafos: [
+          "Os filtros se combinam: ano, mês, intervalo de datas, secretaria, solicitante, fornecedor, tipo e status. O valor total acompanha o recorte, os filtros ficam salvos no navegador e o resultado sai em PDF.",
+          "O painel não precisa de recarga. Quando um processamento termina, um evento passa pelo WebSocket e a tela se atualiza sozinha. As contagens por mês, status e secretaria são agregadas no banco, e não no navegador.",
+        ],
+      },
+      {
+        id: "cadastros",
+        titulo: "Cadastros que dão sentido aos números",
+        imagem: {
+          rotulo: "SECRETARIAS",
+          legenda: "Secretarias com cor própria, usada nos gráficos do dashboard",
+          src: "/img/compras-licitacoes/secretarias-compras.png",
+        },
+        paragrafos: [
+          "Cada secretaria tem uma cor, e essa cor acompanha a secretaria nos gráficos de valor gasto. Quem bate o olho no dashboard reconhece de quem é cada fatia.",
+          "Os usuários se dividem em cinco perfis — administrador, aprovador, solicitante, fornecedor e operador — e cada um abre um painel diferente na mesma rota. O cadastro busca o endereço pelo CEP e mostra o local no mapa.",
         ],
       },
     ],
     fecho:
-      "O ganho é rastreabilidade: menos dependência de planilha paralela e do conhecimento individual de quem tocava o processo.",
+      "O ganho é rastreabilidade: cada pedido tem número, dono, status e prova de entrega, e cada mudança fica registrada e avisada. O processo deixa de depender da memória de quem o tocava.",
   },
 
   "ponto-funcionarios": {
     titulo: "Sistema de Ponto e Gestão de Funcionários",
-    resumo: "PHP · MySQL · Controle de jornada",
-    abertura:
-      "Controle de frequência espalhado entre folha e anotação não sustenta auditoria. A informação até existe, mas ninguém consegue somá-la com confiança no fim do mês.",
+    resumo: "Laravel · React · Inertia · Reverb · WhatsApp · S3",
+    abertura: [
+      "Em prefeitura com várias secretarias e locais de trabalho, frequência em papel ou planilha tem três problemas: batida fora do local ou feita por outra pessoa, hora apurada à mão e folha de ponto montada e distribuída uma a uma todo mês.",
+      "O sistema cobre o ciclo inteiro. O servidor bate o ponto com foto e geolocalização, a jornada do dia é apurada sozinha, e o RH acompanha tudo no painel, gera as folhas em PDF e as envia por WhatsApp.",
+    ],
     capitulos: [
       {
-        id: "marcacoes",
-        titulo: "A marcação e o que veio antes dela",
+        id: "registro",
+        titulo: "A batida acontece no lugar certo, com rosto",
         imagem: {
-          rotulo: "[ MARCAÇÕES ]",
-          legenda: "Entradas e saídas do funcionário, dia a dia",
+          rotulo: "REGISTRO",
+          legenda: "Verificação facial: CPF, horário do ponto e câmera antes da batida",
+          src: "/img/ponto-funcionarios/registro-ponto.png",
         },
         paragrafos: [
-          "Entrada e saída ficam registradas com histórico completo, por funcionário e por período.",
-          "A jornada deixa de ser reconstruída no fim do mês: ela já está lá, do jeito que foi acontecendo.",
+          "O servidor se identifica pelo CPF e a câmera do aparelho tira uma foto no momento da batida. A foto vai para o S3 e fica como evidência de quem bateu.",
+          "A batida só é aceita dentro de uma cerca geográfica. O ponto de referência pode ser definido por colaborador e por dia da semana, ou herdado da secretaria. A distância é calculada no servidor, e não no aparelho de quem bate.",
+          "Sem internet, a batida não se perde: fica numa fila no navegador e sai sozinha quando a conexão volta. Quem está de férias, licença-prêmio ou atestado tem a batida bloqueada.",
         ],
       },
       {
-        id: "correcao",
-        titulo: "Correção faz parte, e fica registrada",
+        id: "relatorio",
+        titulo: "Cada batida chega com a própria prova",
         imagem: {
-          rotulo: "[ AJUSTES ]",
-          legenda: "Correção de inconsistência preservando o registro original",
+          rotulo: "RELATÓRIO DE PONTOS",
+          legenda: "Batidas do dia com foto, localização no mapa, observação e atestado",
+          src: "/img/ponto-funcionarios/relatorio-ponto.png",
         },
         paragrafos: [
-          "Marcação esquecida e batida errada acontecem — tratar isso como exceção é o que faz um sistema de ponto perder a confiança de quem usa.",
-          "O ajuste é um evento registrado, não uma sobrescrita silenciosa. É isso que mantém o relatório defensável numa conferência.",
+          "O relatório mostra cada batida com a foto, o ponto no mapa, a observação e o atestado, quando houver. Filtra por período, local de trabalho e nome, e exporta para Excel.",
+          "Dali mesmo o RH seleciona colaboradores e gera as folhas de ponto do mês em lote. A conferência deixa de ser um pedido de confiança: a foto e o local estão ao lado do horário.",
+        ],
+      },
+      {
+        id: "jornadas",
+        titulo: "A jornada é regra, não planilha",
+        imagem: {
+          rotulo: "JORNADAS",
+          legenda: "Horas semanais por colaborador e a jornada de cada dia da semana",
+          src: "/img/ponto-funcionarios/jornadas-ponto.png",
+        },
+        paragrafos: [
+          "Cada colaborador, ou cada secretaria, tem minutos previstos e tolerância por dia da semana. A edição pode ser feita em lote, para uma equipe inteira de uma vez.",
+          "O plantão que atravessa a meia-noite conta como um dia só. Cada batida dispara a apuração do dia em fila: ok, incompleto ou sem batida, com atrasos, horas extras e banco de horas, sem travar o registro.",
+        ],
+      },
+      {
+        id: "dashboard",
+        titulo: "O dia inteiro num painel",
+        imagem: {
+          rotulo: "DASHBOARD",
+          legenda: "Batidas, presentes, atrasos, horas por secretaria e ranking de atrasos",
+          src: "/img/ponto-funcionarios/dashboard-ponto.png",
+        },
+        paragrafos: [
+          "O painel mostra os indicadores do dia (batidas, colaboradores presentes e atrasos) e os gráficos de batidas por dia, horas trabalhadas por secretaria, evolução do banco de horas e ranking de atrasos.",
+          "O RH deixa de perguntar quem veio. A resposta já está na tela, filtrada pelo local de trabalho que ele escolheu.",
+        ],
+      },
+      {
+        id: "manual",
+        titulo: "Quando o RH precisa lançar",
+        imagem: {
+          rotulo: "BATIDA MANUAL",
+          legenda: "Lançamento para vários colaboradores e um intervalo de datas, com anexo",
+          src: "/img/ponto-funcionarios/manual-ponto.png",
+        },
+        paragrafos: [
+          "Curso fora da sede, plantão por escala, esquecimento: o RH lança batidas para um ou vários colaboradores, num intervalo de datas, com observação obrigatória e anexo de atestado ou decreto.",
+          "Antes de gravar, o sistema procura conflitos. Se já existem batidas no período ou se alguém está afastado, ele avisa e pede confirmação. Editar ou excluir uma batida também exige motivo.",
+        ],
+      },
+      {
+        id: "ferias",
+        titulo: "Afastamento que o próprio ponto respeita",
+        imagem: {
+          rotulo: "FÉRIAS E LICENÇAS",
+          legenda: "Solicitações de férias pendentes, aprovadas e rejeitadas, com anexo",
+          src: "/img/ponto-funcionarios/ferias-ponto.png",
+        },
+        paragrafos: [
+          "Férias e licença-prêmio têm o próprio fluxo: solicitação, aprovação ou rejeição, documento anexado e consulta por colaborador, secretaria ou período.",
+          "O afastamento aprovado conversa com o resto do sistema. A batida fica bloqueada no período, e a folha de ponto já sai com os dias certos.",
+        ],
+      },
+      {
+        id: "folha",
+        titulo: "A folha se monta e chega sozinha",
+        imagem: {
+          rotulo: "FOLHA DE PONTO",
+          legenda: "Folha mensal em PDF: resumo, batidas do dia a dia e observações",
+          src: "/img/ponto-funcionarios/folha-ponto.png",
+        },
+        paragrafos: [
+          "A folha de ponto mensal é gerada em PDF para um colaborador ou em lote, salva no S3 e enviada por WhatsApp. Ela traz o resumo do mês (dias úteis, dias com batida, atestados, atrasos e banco de horas) e o registro de cada dia.",
+          "O lote roda em segundo plano. Quando termina, o Reverb avisa a tela, e as folhas novas aparecem na central com o contador de não lidas. Todo dia, entre 19h e 20h, cada colaborador recebe pelo WhatsApp o resumo das próprias batidas.",
+        ],
+      },
+      {
+        id: "auditoria",
+        titulo: "Toda alteração deixa rastro",
+        imagem: {
+          rotulo: "AUDITORIA",
+          legenda: "Quem mudou o quê, quando, com o valor de antes e o de depois",
+          src: "/img/ponto-funcionarios/auditoria-ponto.png",
+        },
+        paragrafos: [
+          "No serviço público, alguém sempre vai perguntar quem mudou uma batida e por quê. Toda criação, alteração e exclusão fica registrada com o antes e o depois, consultável por administrador e RH.",
+          "Um observer genérico grava o diff de cada model. Nenhuma tela precisa lembrar de auditar, e os registros antigos são limpos automaticamente.",
+        ],
+      },
+      {
+        id: "cadastros",
+        titulo: "Cadastros em massa, escopo por secretaria",
+        imagem: {
+          rotulo: "COLABORADORES",
+          legenda: "Colaboradores com vínculo, local de trabalho, mapa e ações em massa",
+          src: "/img/ponto-funcionarios/colaboradores-ponto.png",
+        },
+        paragrafos: [
+          "Colaboradores são ativados, desativados e vinculados a locais de trabalho em massa, com histórico de inativação. Secretarias e locais guardam coordenadas e raio, com importação em lote.",
+          "São cinco perfis: administrador, RH, operador, colaborador e totem. O operador só enxerga as secretarias a que foi vinculado, e um middleware resolve o local de trabalho em cada requisição e filtra as consultas automaticamente.",
         ],
       },
     ],
     fecho:
-      "Centraliza a frequência e dá à administração um relatório por período que se sustenta sozinho.",
+      "Do registro no celular à folha entregue no WhatsApp, sem etapa manual no meio. O que sustenta isso: regra de jornada de verdade, idempotência, fila offline e auditoria de cada alteração.",
   },
 
   "viagens-frota-fiscal": {
@@ -414,7 +579,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "viagens",
         titulo: "Viagens e eventos",
         imagem: {
-          rotulo: "[ SOLICITAÇÕES ]",
+          rotulo: "SOLICITAÇÕES",
           legenda:
             "Solicitação de viagem com participantes, despesas e pagamentos",
         },
@@ -427,7 +592,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "frota",
         titulo: "Combustível por veículo",
         imagem: {
-          rotulo: "[ ABASTECIMENTOS ]",
+          rotulo: "ABASTECIMENTOS",
           legenda: "Consumo por veículo e responsável, com histórico e valores",
         },
         paragrafos: [
@@ -439,7 +604,7 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
         id: "fiscal",
         titulo: "Notas fiscais que não se perdem",
         imagem: {
-          rotulo: "[ NOTAS FISCAIS ]",
+          rotulo: "NOTAS FISCAIS",
           legenda:
             "Documentos por fornecedor e período, com situação e histórico",
         },

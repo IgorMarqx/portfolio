@@ -9,6 +9,10 @@ export const perfil = {
   disponibilidade: "Aberto a novos projetos e freelances",
   email: "igormarquesdeazevedo11@gmail.com",
   telefone: "(83) 98653-1492",
+  // wa.me pede o número só com dígitos e o DDI 55; a mensagem já chega escrita.
+  whatsapp: `https://wa.me/5583986531492?text=${encodeURIComponent(
+    "Olá, Igor! Vi seu portfólio e queria conversar sobre um projeto.",
+  )}`,
   linkedin: "https://linkedin.com/in/igor-marques-azevedo/",
   github: "https://github.com/IgorMarqx",
   resumo:
@@ -16,12 +20,6 @@ export const perfil = {
   sobre:
     "Trabalho o ciclo completo da solução — modelagem de dados, arquitetura, API, interface, deploy e manutenção. Atuo principalmente com PHP/Laravel, Go e Node.js/TypeScript, em sistemas que precisam se comportar bem sob carga, com consistência de dados, rastreamento de eventos e resposta a incidentes.",
 };
-
-export const metricas = [
-  { valor: "26 mil+", rotulo: "entregadores impactados" },
-  { valor: "300+", rotulo: "empresas integradas" },
-  { valor: "16", rotulo: "integrações de delivery" },
-];
 
 export const experiencias = [
   {
@@ -72,6 +70,8 @@ export type Projeto = {
   visual: string;
   /** Vídeo mudo em laço no lugar do rótulo `visual` do cartão. */
   miniatura?: string;
+  /** Imagem parada no lugar do rótulo, para projeto que só tem captura. */
+  capa?: string;
   tags: string[];
   impacto: string;
 };
@@ -84,7 +84,7 @@ export const projetos: Projeto[] = [
     nome: "Clube de Tênis",
     descricao:
       "Plataforma que centraliza a operação de um clube com 100+ sócios: reservas das 5 quadras, turmas, mensalidades, financeiro, cantina e estoque.",
-    visual: "[ RESERVAS ]",
+    visual: "RESERVAS",
     miniatura: "/videos/centro-tenistico/reservas-centro-tenistico.mp4",
     tags: ["Laravel", "React", "MySQL", "S3"],
     impacto:
@@ -97,7 +97,7 @@ export const projetos: Projeto[] = [
     nome: "Integrações",
     descricao:
       "Integrações com 16 plataformas e padrões do ecossistema de delivery, conectando pedidos à operação logística da Moovery com padronização, processamento assíncrono e controle de duplicidade.",
-    visual: "[ 16 INTEGRAÇÕES ]",
+    visual: "16 INTEGRAÇÕES",
     tags: ["Node.js", "Go", "PHP/Laravel", "RabbitMQ", "Amazon MQ", "AWS"],
     impacto:
       "16 integrações desenvolvidas. No painel, 599 vínculos com empresas, sendo 497 ativos.",
@@ -109,7 +109,7 @@ export const projetos: Projeto[] = [
     nome: "Antecipação & Repasses",
     descricao:
       "Fluxo de antecipação e pagamento de entregadores integrado à IUGU, com agendamento via EventBridge e processamento assíncrono.",
-    visual: "[ CICLOS ]",
+    visual: "CICLOS",
     tags: ["Go", "RabbitMQ", "IUGU"],
     impacto:
       "Base com mais de 26 mil entregadores atendida sem bloquear o fluxo síncrono.",
@@ -120,11 +120,12 @@ export const projetos: Projeto[] = [
     categoria: "PROCESSOS ADMINISTRATIVOS",
     nome: "Compras e Licitações",
     descricao:
-      "Digitalização de solicitações, fornecedores, propostas, etapas e responsáveis, com histórico de movimentações e relatórios.",
-    visual: "[ PROCESSOS ]",
-    tags: ["PHP", "MySQL"],
+      "Ciclo de compras de um órgão público digitalizado, da solicitação à entrega comprovada com nota fiscal e foto, com aviso por WhatsApp a cada mudança de status.",
+    visual: "SOLICITAÇÕES",
+    capa: "/img/compras-licitacoes/solicitacoes-compras.png",
+    tags: ["Laravel", "React", "Inertia", "Reverb", "S3"],
     impacto:
-      "Mais rastreabilidade e menos dependência de planilhas e documentos físicos.",
+      "Pedidos de várias secretarias deixaram o papel e a planilha e passaram a ter número, status e prova de entrega.",
   },
   {
     slug: "ponto-funcionarios",
@@ -132,10 +133,12 @@ export const projetos: Projeto[] = [
     categoria: "RH / JORNADA",
     nome: "Ponto e Funcionários",
     descricao:
-      "Registro de entradas e saídas, histórico de marcações, correção de inconsistências e relatórios por período.",
-    visual: "[ MARCAÇÕES ]",
-    tags: ["PHP", "MySQL"],
-    impacto: "Centraliza a frequência e facilita auditoria administrativa.",
+      "Ponto eletrônico para órgãos públicos: batida com foto e cerca geográfica, jornada apurada sozinha e folha de ponto mensal em PDF entregue por WhatsApp.",
+    visual: "DASHBOARD",
+    capa: "/img/ponto-funcionarios/dashboard-ponto.png",
+    tags: ["Laravel", "React", "Reverb", "MySQL", "S3"],
+    impacto:
+      "Fim da batida fora do local ou por terceiros, da apuração manual de horas e da montagem de folhas no fim do mês.",
   },
   {
     slug: "viagens-frota-fiscal",
@@ -144,7 +147,7 @@ export const projetos: Projeto[] = [
     nome: "Viagens, Frota e Fiscal",
     descricao:
       "Solicitações, despesas, pagamentos, abastecimentos por veículo e acompanhamento de notas fiscais por fornecedor e período.",
-    visual: "[ RELATÓRIOS ]",
+    visual: "RELATÓRIOS",
     tags: ["PHP", "Go", "Geolocalização"],
     impacto:
       "Processos internos viram fluxos digitais com histórico, consulta e prestação de contas.",
@@ -263,9 +266,9 @@ export const ferramentas = [
 ];
 
 export const navegacao = [
-  { id: "home", rotulo: "01_HOME" },
-  { id: "projetos", rotulo: "02_PROJETOS" },
-  { id: "stack", rotulo: "03_STACK" },
-  { id: "sobre", rotulo: "04_SOBRE" },
-  { id: "contato", rotulo: "05_CONTATO" },
+  { id: "home", rotulo: "Início" },
+  { id: "projetos", rotulo: "Projetos" },
+  { id: "stack", rotulo: "Stack" },
+  { id: "sobre", rotulo: "Sobre" },
+  { id: "contato", rotulo: "Contato" },
 ];

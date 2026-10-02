@@ -120,16 +120,14 @@ export function ModalCasca({
         if (evento.target === evento.currentTarget) onFechar();
       }}
     >
-      <div className="painel flex h-[100dvh] w-full max-w-6xl flex-col overflow-hidden sm:h-[88vh]">
+      <div className="painel flex h-[100dvh] w-full max-w-6xl flex-col overflow-hidden rounded-none sm:h-[88vh] sm:rounded-2xl">
         <header className="flex items-start justify-between gap-4 border-b border-line px-5 py-4 sm:px-8">
           <div className="min-w-0">
-            <p className="text-[11px] tracking-[0.15em] text-accent">
-              {etiqueta}
-            </p>
-            <h3 className="mt-1 text-lg font-bold leading-snug sm:text-2xl">
+            <p className="rotulo">{etiqueta}</p>
+            <h3 className="mt-1 text-lg font-bold leading-snug tracking-tight sm:text-2xl">
               {titulo}
             </h3>
-            <p className="rotulo mt-1">{subtitulo}</p>
+            <p className="mt-1 text-sm text-muted">{subtitulo}</p>
           </div>
 
           <button
@@ -137,9 +135,9 @@ export function ModalCasca({
             type="button"
             onClick={onFechar}
             aria-label="Fechar"
-            className="flex h-10 shrink-0 items-center border border-line px-3 text-[11px] font-semibold tracking-[0.15em] transition-colors hover:border-accent hover:text-accent"
+            className="flex h-10 shrink-0 items-center gap-2 rounded-full border border-line px-4 text-sm font-semibold transition-colors hover:border-accent hover:text-accent"
           >
-            <span className="hidden sm:inline">ESC&nbsp;</span>✕
+            <span className="hidden sm:inline">Fechar</span>✕
           </button>
         </header>
 
@@ -155,7 +153,7 @@ export function ModalCasca({
                 type="button"
                 onClick={ampliar}
                 aria-label={`Ampliar: ${imagem.legenda}`}
-                className="group relative min-h-0 flex-1 cursor-zoom-in overflow-hidden bg-canvas/60"
+                className="group relative min-h-0 flex-1 cursor-zoom-in overflow-hidden rounded-xl bg-canvas/60"
               >
                 {imagem.video ? (
                   // key força o recarregamento ao trocar de capítulo.
@@ -181,15 +179,15 @@ export function ModalCasca({
                   />
                 )}
 
-                <span className="absolute bottom-3 right-3 flex items-center gap-2 border border-line bg-canvas/85 px-3 py-1.5 text-[10px] font-semibold tracking-[0.15em] text-fg/80 backdrop-blur transition-colors group-hover:border-accent group-hover:text-accent">
-                  ⤢ AMPLIAR
+                <span className="absolute bottom-3 right-3 flex items-center gap-2 rounded-full border border-line bg-canvas/85 px-3 py-1.5 text-xs font-semibold text-fg/90 backdrop-blur transition-colors group-hover:border-accent group-hover:text-accent">
+                  ⤢ Ampliar
                 </span>
               </button>
             ) : (
               // Trecho sem tela para mostrar: o palco vira cartão de capítulo, sem
               // mudar de altura — o texto de baixo não pula ao rolar.
-              <div className="grade flex min-h-0 flex-1 items-center gap-4 border border-line bg-canvas/40 px-5">
-                <span className="shrink-0 text-[11px] tracking-[0.2em] text-accent">
+              <div className="brilho flex min-h-0 flex-1 items-center gap-4 rounded-xl border border-line bg-canvas/40 px-5">
+                <span className="rotulo shrink-0">
                   {String(passoAtual + 1).padStart(2, "0")} — {imagem.rotulo}
                 </span>
                 <span className="truncate text-sm font-semibold text-fg/80 sm:text-base">
@@ -198,8 +196,8 @@ export function ModalCasca({
               </div>
             )}
 
-            <figcaption className="text-xs leading-relaxed text-muted">
-              <span className="text-accent">
+            <figcaption className="text-sm leading-relaxed text-muted">
+              <span className="font-semibold tabular-nums text-accent">
                 {String(passoAtual + 1).padStart(2, "0")}/
                 {String(passos.length).padStart(2, "0")}
               </span>{" "}
@@ -217,7 +215,7 @@ export function ModalCasca({
                   className="group flex h-6 flex-1 items-center"
                 >
                   <span
-                    className={`relative block h-1 w-full overflow-hidden transition-colors ${
+                    className={`relative block h-1.5 w-full overflow-hidden rounded-full transition-colors ${
                       indice < passoAtual
                         ? "bg-accent/40"
                         : "bg-line group-hover:bg-muted"

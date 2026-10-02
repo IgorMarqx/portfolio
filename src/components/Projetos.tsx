@@ -154,12 +154,10 @@ export function Projetos() {
   return (
     <section id="projetos" className="scroll-mt-24">
       <div className="painel flex flex-wrap items-center justify-between gap-3 px-6 py-4">
-        <h2 className="text-xs tracking-[0.2em] text-muted">
-          // PROJETOS E SISTEMAS
-        </h2>
+        <h2 className="text-lg font-bold sm:text-xl">Projetos e sistemas</h2>
 
         <div className="flex items-center gap-3">
-          <span className="text-xs tracking-[0.2em] text-accent">
+          <span className="text-sm font-semibold tabular-nums text-muted">
             {String(atual + 1).padStart(2, "0")}/
             {String(projetos.length).padStart(2, "0")}
           </span>
@@ -167,7 +165,7 @@ export function Projetos() {
             type="button"
             onClick={() => passo(-1)}
             aria-label="Projeto anterior"
-            className="flex h-9 w-9 items-center justify-center border border-line text-xs text-muted transition-colors hover:border-accent hover:text-accent"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-line text-muted transition-colors hover:border-accent hover:text-accent"
           >
             ←
           </button>
@@ -175,7 +173,7 @@ export function Projetos() {
             type="button"
             onClick={() => passo(1)}
             aria-label="Próximo projeto"
-            className="flex h-9 w-9 items-center justify-center border border-line text-xs text-muted transition-colors hover:border-accent hover:text-accent"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-line text-muted transition-colors hover:border-accent hover:text-accent"
           >
             →
           </button>
@@ -229,7 +227,7 @@ export function Projetos() {
             className="group flex h-6 items-center px-1"
           >
             <span
-              className={`block h-1 overflow-hidden transition-all ${
+              className={`block h-1.5 overflow-hidden rounded-full transition-all ${
                 atual === indice
                   ? "w-10 bg-line"
                   : "w-3 bg-line group-hover:bg-muted"

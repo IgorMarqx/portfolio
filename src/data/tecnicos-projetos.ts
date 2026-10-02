@@ -30,7 +30,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
         id: "stack",
         titulo: "Stack da aplicação",
         imagem: {
-          rotulo: "[ ARQUITETURA ]",
+          rotulo: "ARQUITETURA",
           legenda:
             "Monolito Laravel servindo React pelo Inertia, sem API separada",
         },
@@ -63,7 +63,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
         id: "financeiro",
         titulo: "Cobrança: Sicredi de ponta a ponta",
         imagem: {
-          rotulo: "[ FLUXO DE COBRANÇA ]",
+          rotulo: "FLUXO DE COBRANÇA",
           legenda:
             "Geração do boleto, retorno por webhook e baixa no financeiro",
         },
@@ -90,7 +90,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
         id: "infra",
         titulo: "Onde roda",
         imagem: {
-          rotulo: "[ INFRAESTRUTURA ]",
+          rotulo: "INFRAESTRUTURA",
           legenda: "VPS na DigitalOcean, Nginx, MySQL e bucket S3",
         },
         texto:
@@ -115,7 +115,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
         id: "entrega",
         titulo: "Como vai para produção",
         imagem: {
-          rotulo: "[ PIPELINE ]",
+          rotulo: "PIPELINE",
           legenda: "Do push ao deploy",
         },
         texto:
@@ -138,7 +138,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
         id: "decisoes",
         titulo: "Decisões que valem contar",
         imagem: {
-          rotulo: "[ PERMISSÕES ]",
+          rotulo: "PERMISSÕES",
           legenda: "Mesma tela, escopo diferente por perfil",
         },
         texto:
@@ -164,7 +164,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
         id: "stack",
         titulo: "Stack das integrações",
         imagem: {
-          rotulo: "[ INTEGRAÇÕES ]",
+          rotulo: "INTEGRAÇÕES",
           legenda: "Conexões entre as plataformas de delivery e a operação logística",
         },
         texto:
@@ -184,7 +184,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
         id: "mensageria",
         titulo: "Mensageria",
         imagem: {
-          rotulo: "[ FILAS ]",
+          rotulo: "FILAS",
           legenda: "Recebimento, fila e consumo em background",
         },
         texto:
@@ -208,7 +208,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
       {
         id: "infra",
         titulo: "Infraestrutura",
-        imagem: { rotulo: "[ AWS ]", legenda: "Onde o serviço roda" },
+        imagem: { rotulo: "AWS", legenda: "Onde o serviço roda" },
         itens: [
           { nome: "EC2", papel: "Execução do serviço" },
           { nome: "RDS", papel: "Banco gerenciado" },
@@ -223,13 +223,8 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
       {
         id: "entrega",
         titulo: "Entrega e observabilidade",
-        imagem: { rotulo: "[ PIPELINE ]", legenda: "Deploy e acompanhamento" },
+        imagem: { rotulo: "PIPELINE", legenda: "Deploy e acompanhamento" },
         itens: [
-          {
-            nome: "GitHub Actions / GitLab",
-            papel: "Pipeline de build e deploy",
-            confirmar: true,
-          },
           {
             nome: "Logs e troubleshooting",
             papel: "Investigação de incidente em produção",
@@ -251,7 +246,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
         id: "stack",
         titulo: "Stack",
         imagem: {
-          rotulo: "[ SERVIÇOS ]",
+          rotulo: "SERVIÇOS",
           legenda: "Go e PHP dividindo o fluxo financeiro",
         },
         itens: [
@@ -270,7 +265,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
         id: "agendamento",
         titulo: "Agendamento e filas",
         imagem: {
-          rotulo: "[ AGENDAMENTO ]",
+          rotulo: "AGENDAMENTO",
           legenda: "EventBridge disparando a rodada",
         },
         itens: [
@@ -288,7 +283,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
         id: "pagamentos",
         titulo: "Provedores de pagamento",
         imagem: {
-          rotulo: "[ WEBHOOKS ]",
+          rotulo: "WEBHOOKS",
           legenda: "Retornos financeiros conciliados",
         },
         itens: [
@@ -303,74 +298,195 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
   },
 
   "compras-licitacoes": {
-    resumo: "PHP · MySQL",
+    resumo: "Laravel 12 · Inertia · React 19 · Reverb · Queues · S3 · DigitalOcean",
     secoes: [
       {
         id: "stack",
-        titulo: "Stack",
+        titulo: "Stack da aplicação",
         imagem: {
-          rotulo: "[ APLICAÇÃO ]",
-          legenda: "Aplicação PHP com banco relacional",
+          rotulo: "ARQUITETURA",
+          legenda: "Monolito Laravel servindo React pelo Inertia",
+        },
+        texto:
+          "Um monolito Laravel com o front em React servido pelo Inertia, organizado em camadas Controller → Service → Repository. Controllers finos, regras nos Services e consultas nos Repositories: as regras podem ser testadas isoladas.",
+        itens: [
+          { nome: "PHP 8.2 + Laravel 12", papel: "Aplicação, regras de negócio e rotas" },
+          { nome: "Sanctum", papel: "Autenticação por token na API" },
+          {
+            nome: "Inertia 2 + React 19 + TypeScript",
+            papel: "Páginas servidas pelo Laravel, interface em React",
+          },
+          {
+            nome: "Tailwind CSS 4 + Radix UI + Framer Motion",
+            papel: "Componentes acessíveis e animações da interface",
+          },
+          { nome: "Recharts", papel: "Gráficos do dashboard" },
+          { nome: "jsPDF + AutoTable", papel: "Ordem de compra e relatórios em PDF" },
+          { nome: "Pest", papel: "Testes automatizados" },
+        ],
+      },
+      {
+        id: "filas",
+        titulo: "Filas, eventos e tempo real",
+        imagem: {
+          rotulo: "FILAS",
+          legenda: "Da troca de status ao aviso e à tela atualizada",
+        },
+        passos: [
+          "Um observer no model percebe a troca de status da solicitação.",
+          "O envio por WhatsApp entra na fila como job, com 3 tentativas, intervalo entre elas e log de falha.",
+          "Itens são inseridos em lote, até 1.000 linhas por vez, e o total é recalculado no mesmo job.",
+          "A trava WithoutOverlapping impede dois jobs concorrentes na mesma solicitação.",
+          "No fim do processamento, um evento sai pelo Reverb e o Echo atualiza o dashboard sem recarregar.",
+        ],
+      },
+      {
+        id: "integracoes",
+        titulo: "Integrações",
+        imagem: {
+          rotulo: "WHATSAPP",
+          legenda: "Configuração de aviso por status, com template e números",
         },
         itens: [
-          { nome: "PHP", papel: "Aplicação e regras do processo" },
           {
-            nome: "MySQL",
-            papel: "Processos, fornecedores, propostas e movimentações",
+            nome: "API de WhatsApp",
+            papel: "Envio de texto e mídia, com telefones normalizados e deduplicados",
           },
-          {
-            nome: "Permissões por perfil",
-            papel: "Cada função enxerga o seu recorte",
-          },
+          { nome: "AWS S3", papel: "Notas fiscais e fotos de coleta" },
+          { nome: "Google Maps embed", papel: "Endereço do usuário no mapa" },
+          { nome: "Busca por CEP", papel: "Preenchimento automático do endereço" },
         ],
+      },
+      {
+        id: "acesso",
+        titulo: "Acesso por perfil",
+        imagem: {
+          rotulo: "PERFIS",
+          legenda: "Cinco perfis, um painel para cada um",
+        },
+        texto:
+          "Middleware de autenticação na API e middleware de perfil nas rotas web. Administrador, aprovador, solicitante, fornecedor e operador abrem a mesma rota e recebem painéis diferentes.",
       },
       {
         id: "infra",
         titulo: "Infraestrutura e entrega",
-        imagem: { rotulo: "[ HOSPEDAGEM ]", legenda: "Onde a aplicação roda" },
+        imagem: {
+          rotulo: "INFRAESTRUTURA",
+          legenda: "VPS na DigitalOcean, banco em cluster gerenciado e deploy pelo GitHub Actions",
+        },
+        texto:
+          "A aplicação roda numa VPS da DigitalOcean, e o banco fica num cluster gerenciado da própria DigitalOcean, fora da máquina da aplicação. O deploy sai do GitHub Actions.",
         itens: [
+          { nome: "DigitalOcean", papel: "VPS da aplicação" },
           {
-            nome: "Hospedagem",
-            papel: "Servidor da aplicação",
-            confirmar: true,
+            nome: "Cluster de banco gerenciado",
+            papel: "Banco da aplicação em cluster da DigitalOcean, separado da VPS",
           },
-          {
-            nome: "Armazenamento de documentos",
-            papel: "Anexos do processo",
-            confirmar: true,
-          },
-          { nome: "CI/CD", papel: "Publicação da aplicação", confirmar: true },
+          { nome: "GitHub Actions", papel: "Pipeline de CI/CD e publicação na VPS" },
+          { nome: "Docker + Docker Compose", papel: "Ambiente reproduzível da aplicação" },
+          { nome: "Vite 7", papel: "Build do front" },
+          { nome: "MySQL", papel: "Banco relacional da aplicação, no cluster gerenciado" },
         ],
       },
     ],
   },
 
   "ponto-funcionarios": {
-    resumo: "PHP · MySQL",
+    resumo: "Laravel 12 · Inertia · React 19 · Reverb · MySQL · S3 · DigitalOcean",
     secoes: [
       {
         id: "stack",
-        titulo: "Stack",
+        titulo: "Stack da aplicação",
         imagem: {
-          rotulo: "[ APLICAÇÃO ]",
-          legenda: "Registro de jornada e relatórios",
+          rotulo: "ARQUITETURA",
+          legenda: "Monolito Laravel servindo React pelo Inertia, com filas e WebSocket",
         },
+        texto:
+          "Mais de 900 commits, 40+ migrations e 13 módulos de domínio no backend. Controllers finos, Services e Repositories por domínio, Form Requests e Observers. O registro responde na hora; foto, apuração e documentos são tratados em segundo plano.",
         itens: [
-          { nome: "PHP", papel: "Aplicação e regras de jornada" },
-          { nome: "MySQL", papel: "Marcações, ajustes e histórico" },
+          { nome: "PHP 8.2 + Laravel 12", papel: "Aplicação, regras de jornada e rotas" },
+          { nome: "Sanctum", papel: "Autenticação da API" },
+          { nome: "Inertia + React 19 + TypeScript", papel: "Interface servida pelo Laravel" },
+          { nome: "Tailwind CSS 4 + Radix UI", papel: "Componentes da interface" },
+          { nome: "Leaflet", papel: "Mapas da batida, da secretaria e do local de trabalho" },
+          { nome: "Dompdf", papel: "Folha de ponto mensal em PDF, gerada no servidor" },
+          { nome: "MySQL", papel: "Batidas, jornadas, afastamentos e auditoria, em cluster gerenciado" },
         ],
       },
       {
-        id: "infra",
-        titulo: "Infraestrutura e entrega",
-        imagem: { rotulo: "[ HOSPEDAGEM ]", legenda: "Onde a aplicação roda" },
+        id: "desafios",
+        titulo: "Desafios e como foram resolvidos",
+        imagem: {
+          rotulo: "CONFIABILIDADE",
+          legenda: "Batida no lugar certo, uma vez só, sem travar a tela",
+        },
         itens: [
           {
-            nome: "Hospedagem",
-            papel: "Servidor da aplicação",
-            confirmar: true,
+            nome: "Batida duplicada",
+            papel: "Chave de idempotência (usuário, tipo, minuto e UUID do cliente) com índice único. A repetição devolve a batida já gravada, inclusive no reenvio da fila offline.",
           },
-          { nome: "CI/CD", papel: "Publicação da aplicação", confirmar: true },
+          {
+            nome: "Ponto fora do local",
+            papel: "Distância por Haversine no servidor, contra o raio do colaborador, do dia da semana ou da secretaria.",
+          },
+          {
+            nome: "Registro lento",
+            papel: "Upload da foto para o S3 e apuração do dia em jobs de fila, com retentativa e backoff.",
+          },
+          {
+            nome: "Notificação diária duplicada",
+            papel: "Horário sorteado dentro da janela e claim antes do envio: dois workers nunca mandam a mesma mensagem.",
+          },
+          {
+            nome: "Várias secretarias no mesmo sistema",
+            papel: "Contexto do local de trabalho resolvido por middleware em cada requisição, filtrando as consultas automaticamente.",
+          },
+        ],
+      },
+      {
+        id: "filas",
+        titulo: "Filas e tempo real",
+        imagem: {
+          rotulo: "FILAS",
+          legenda: "Do clique em Bater Ponto à folha entregue",
+        },
+        passos: [
+          "A batida é gravada na hora, com a chave de idempotência.",
+          "Jobs em fila enviam a foto ao S3 e apuram o dia: status, atrasos, horas extras e banco de horas.",
+          "Operações em lote (folhas, desativações, batidas manuais) rodam em segundo plano.",
+          "Quando o lote termina, o Reverb avisa a tela pelo WebSocket, sem recarregar.",
+          "A folha em PDF vai para o S3 e é enviada por WhatsApp; o resumo diário sai entre 19h e 20h.",
+        ],
+      },
+      {
+        id: "auditoria",
+        titulo: "Auditoria e acesso",
+        imagem: {
+          rotulo: "AUDITORIA",
+          legenda: "Diff de cada alteração, com antes e depois",
+        },
+        texto:
+          "Um observer de auditoria genérico grava o diff de cada model, com limpeza automática dos registros antigos. Cinco perfis (administrador, RH, operador, colaborador e totem), cada um vendo só as telas e os dados do seu escopo.",
+      },
+      {
+        id: "infra",
+        titulo: "Infraestrutura e integrações",
+        imagem: {
+          rotulo: "INFRAESTRUTURA",
+          legenda: "VPS na DigitalOcean, MySQL em cluster gerenciado e deploy pelo GitHub Actions",
+        },
+        texto:
+          "A aplicação roda numa VPS da DigitalOcean, e o MySQL fica num cluster gerenciado da própria DigitalOcean, fora da máquina da aplicação. O deploy sai do GitHub Actions.",
+        itens: [
+          { nome: "DigitalOcean", papel: "VPS da aplicação" },
+          {
+            nome: "MySQL em cluster gerenciado",
+            papel: "Banco da aplicação em cluster da DigitalOcean, separado da VPS",
+          },
+          { nome: "GitHub Actions", papel: "Pipeline de CI/CD e publicação na VPS" },
+          { nome: "AWS S3", papel: "Fotos das batidas, anexos e folhas de ponto" },
+          { nome: "API de WhatsApp", papel: "Folhas mensais e resumo diário das batidas" },
+          { nome: "Laravel Reverb + Echo", papel: "Aviso em tempo real do fim dos lotes" },
         ],
       },
     ],
@@ -383,7 +499,7 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
         id: "stack",
         titulo: "Stack",
         imagem: {
-          rotulo: "[ APLICAÇÕES ]",
+          rotulo: "APLICAÇÕES",
           legenda: "Conjunto de sistemas administrativos",
         },
         itens: [
@@ -393,31 +509,6 @@ export const tecnicosProjetos: Record<string, DetalheTecnico> = {
           {
             nome: "Geolocalização",
             papel: "Informação de campo vinculada ao registro",
-          },
-        ],
-      },
-      {
-        id: "infra",
-        titulo: "Infraestrutura e entrega",
-        imagem: {
-          rotulo: "[ HOSPEDAGEM ]",
-          legenda: "Onde as aplicações rodam",
-        },
-        itens: [
-          {
-            nome: "Hospedagem",
-            papel: "Servidor das aplicações",
-            confirmar: true,
-          },
-          {
-            nome: "Armazenamento de documentos",
-            papel: "Notas e comprovantes",
-            confirmar: true,
-          },
-          {
-            nome: "CI/CD",
-            papel: "Publicação das aplicações",
-            confirmar: true,
           },
         ],
       },

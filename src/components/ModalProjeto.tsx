@@ -20,7 +20,7 @@ export function ModalProjeto({ projeto, detalhe, onFechar }: Props) {
 
   return (
     <ModalCasca
-      etiqueta={`// ${projeto.numero} · ${projeto.categoria}`}
+      etiqueta={`${projeto.numero} · ${projeto.categoria}`}
       titulo={detalhe.titulo}
       subtitulo={detalhe.resumo}
       imagem={capitulo.imagem}
@@ -46,14 +46,14 @@ export function ModalProjeto({ projeto, detalhe, onFechar }: Props) {
           data-indice={indice}
           className="mt-14 scroll-mt-4 border-t border-line pt-10"
         >
-          <p className="text-[11px] tracking-[0.2em] text-accent">
+          <p className="rotulo">
             {String(indice + 1).padStart(2, "0")} — {cap.imagem.rotulo}
           </p>
-          <h4 className="mt-3 text-xl font-bold leading-snug sm:text-2xl">{cap.titulo}</h4>
+          <h4 className="mt-3 text-xl font-bold leading-snug tracking-tight sm:text-2xl">{cap.titulo}</h4>
 
           <div className="mt-5 space-y-5">
             {cap.paragrafos.map((paragrafo) => (
-              <p key={paragrafo} className="text-[15px] leading-7 text-fg/80">
+              <p key={paragrafo} className="text-base leading-7 text-fg/85">
                 {paragrafo}
               </p>
             ))}
@@ -69,7 +69,7 @@ export function ModalProjeto({ projeto, detalhe, onFechar }: Props) {
         {projeto.tags.map((tag) => (
           <span
             key={tag}
-            className="border border-line px-2 py-1 text-[11px] text-fg/80"
+            className="rounded-full bg-panel px-3 py-1 text-xs font-medium text-fg/85"
           >
             {tag}
           </span>
