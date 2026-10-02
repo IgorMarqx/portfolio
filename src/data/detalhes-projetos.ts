@@ -440,37 +440,133 @@ export const detalhesProjetos: Record<string, DetalheProjeto> = {
 
   "ponto-funcionarios": {
     titulo: "Sistema de Ponto e Gestão de Funcionários",
-    resumo: "PHP · MySQL · Controle de jornada",
-    abertura:
-      "Controle de frequência espalhado entre folha e anotação não sustenta auditoria. A informação até existe, mas ninguém consegue somá-la com confiança no fim do mês.",
+    resumo: "Laravel · React · Inertia · Reverb · WhatsApp · S3",
+    abertura: [
+      "Em prefeitura com várias secretarias e locais de trabalho, frequência em papel ou planilha tem três problemas: batida fora do local ou feita por outra pessoa, hora apurada à mão e folha de ponto montada e distribuída uma a uma todo mês.",
+      "O sistema cobre o ciclo inteiro. O servidor bate o ponto com foto e geolocalização, a jornada do dia é apurada sozinha, e o RH acompanha tudo no painel, gera as folhas em PDF e as envia por WhatsApp.",
+    ],
     capitulos: [
       {
-        id: "marcacoes",
-        titulo: "A marcação e o que veio antes dela",
+        id: "registro",
+        titulo: "A batida acontece no lugar certo, com rosto",
         imagem: {
-          rotulo: "MARCAÇÕES",
-          legenda: "Entradas e saídas do funcionário, dia a dia",
+          rotulo: "REGISTRO",
+          legenda: "Verificação facial: CPF, horário do ponto e câmera antes da batida",
+          src: "/img/ponto-funcionarios/registro-ponto.png",
         },
         paragrafos: [
-          "Entrada e saída ficam registradas com histórico completo, por funcionário e por período.",
-          "A jornada deixa de ser reconstruída no fim do mês: ela já está lá, do jeito que foi acontecendo.",
+          "O servidor se identifica pelo CPF e a câmera do aparelho tira uma foto no momento da batida. A foto vai para o S3 e fica como evidência de quem bateu.",
+          "A batida só é aceita dentro de uma cerca geográfica. O ponto de referência pode ser definido por colaborador e por dia da semana, ou herdado da secretaria. A distância é calculada no servidor, e não no aparelho de quem bate.",
+          "Sem internet, a batida não se perde: fica numa fila no navegador e sai sozinha quando a conexão volta. Quem está de férias, licença-prêmio ou atestado tem a batida bloqueada.",
         ],
       },
       {
-        id: "correcao",
-        titulo: "Correção faz parte, e fica registrada",
+        id: "relatorio",
+        titulo: "Cada batida chega com a própria prova",
         imagem: {
-          rotulo: "AJUSTES",
-          legenda: "Correção de inconsistência preservando o registro original",
+          rotulo: "RELATÓRIO DE PONTOS",
+          legenda: "Batidas do dia com foto, localização no mapa, observação e atestado",
+          src: "/img/ponto-funcionarios/relatorio-ponto.png",
         },
         paragrafos: [
-          "Marcação esquecida e batida errada acontecem — tratar isso como exceção é o que faz um sistema de ponto perder a confiança de quem usa.",
-          "O ajuste é um evento registrado, não uma sobrescrita silenciosa. É isso que mantém o relatório defensável numa conferência.",
+          "O relatório mostra cada batida com a foto, o ponto no mapa, a observação e o atestado, quando houver. Filtra por período, local de trabalho e nome, e exporta para Excel.",
+          "Dali mesmo o RH seleciona colaboradores e gera as folhas de ponto do mês em lote. A conferência deixa de ser um pedido de confiança: a foto e o local estão ao lado do horário.",
+        ],
+      },
+      {
+        id: "jornadas",
+        titulo: "A jornada é regra, não planilha",
+        imagem: {
+          rotulo: "JORNADAS",
+          legenda: "Horas semanais por colaborador e a jornada de cada dia da semana",
+          src: "/img/ponto-funcionarios/jornadas-ponto.png",
+        },
+        paragrafos: [
+          "Cada colaborador, ou cada secretaria, tem minutos previstos e tolerância por dia da semana. A edição pode ser feita em lote, para uma equipe inteira de uma vez.",
+          "O plantão que atravessa a meia-noite conta como um dia só. Cada batida dispara a apuração do dia em fila: ok, incompleto ou sem batida, com atrasos, horas extras e banco de horas, sem travar o registro.",
+        ],
+      },
+      {
+        id: "dashboard",
+        titulo: "O dia inteiro num painel",
+        imagem: {
+          rotulo: "DASHBOARD",
+          legenda: "Batidas, presentes, atrasos, horas por secretaria e ranking de atrasos",
+          src: "/img/ponto-funcionarios/dashboard-ponto.png",
+        },
+        paragrafos: [
+          "O painel mostra os indicadores do dia (batidas, colaboradores presentes e atrasos) e os gráficos de batidas por dia, horas trabalhadas por secretaria, evolução do banco de horas e ranking de atrasos.",
+          "O RH deixa de perguntar quem veio. A resposta já está na tela, filtrada pelo local de trabalho que ele escolheu.",
+        ],
+      },
+      {
+        id: "manual",
+        titulo: "Quando o RH precisa lançar",
+        imagem: {
+          rotulo: "BATIDA MANUAL",
+          legenda: "Lançamento para vários colaboradores e um intervalo de datas, com anexo",
+          src: "/img/ponto-funcionarios/manual-ponto.png",
+        },
+        paragrafos: [
+          "Curso fora da sede, plantão por escala, esquecimento: o RH lança batidas para um ou vários colaboradores, num intervalo de datas, com observação obrigatória e anexo de atestado ou decreto.",
+          "Antes de gravar, o sistema procura conflitos. Se já existem batidas no período ou se alguém está afastado, ele avisa e pede confirmação. Editar ou excluir uma batida também exige motivo.",
+        ],
+      },
+      {
+        id: "ferias",
+        titulo: "Afastamento que o próprio ponto respeita",
+        imagem: {
+          rotulo: "FÉRIAS E LICENÇAS",
+          legenda: "Solicitações de férias pendentes, aprovadas e rejeitadas, com anexo",
+          src: "/img/ponto-funcionarios/ferias-ponto.png",
+        },
+        paragrafos: [
+          "Férias e licença-prêmio têm o próprio fluxo: solicitação, aprovação ou rejeição, documento anexado e consulta por colaborador, secretaria ou período.",
+          "O afastamento aprovado conversa com o resto do sistema. A batida fica bloqueada no período, e a folha de ponto já sai com os dias certos.",
+        ],
+      },
+      {
+        id: "folha",
+        titulo: "A folha se monta e chega sozinha",
+        imagem: {
+          rotulo: "FOLHA DE PONTO",
+          legenda: "Folha mensal em PDF: resumo, batidas do dia a dia e observações",
+          src: "/img/ponto-funcionarios/folha-ponto.png",
+        },
+        paragrafos: [
+          "A folha de ponto mensal é gerada em PDF para um colaborador ou em lote, salva no S3 e enviada por WhatsApp. Ela traz o resumo do mês (dias úteis, dias com batida, atestados, atrasos e banco de horas) e o registro de cada dia.",
+          "O lote roda em segundo plano. Quando termina, o Reverb avisa a tela, e as folhas novas aparecem na central com o contador de não lidas. Todo dia, entre 19h e 20h, cada colaborador recebe pelo WhatsApp o resumo das próprias batidas.",
+        ],
+      },
+      {
+        id: "auditoria",
+        titulo: "Toda alteração deixa rastro",
+        imagem: {
+          rotulo: "AUDITORIA",
+          legenda: "Quem mudou o quê, quando, com o valor de antes e o de depois",
+          src: "/img/ponto-funcionarios/auditoria-ponto.png",
+        },
+        paragrafos: [
+          "No serviço público, alguém sempre vai perguntar quem mudou uma batida e por quê. Toda criação, alteração e exclusão fica registrada com o antes e o depois, consultável por administrador e RH.",
+          "Um observer genérico grava o diff de cada model. Nenhuma tela precisa lembrar de auditar, e os registros antigos são limpos automaticamente.",
+        ],
+      },
+      {
+        id: "cadastros",
+        titulo: "Cadastros em massa, escopo por secretaria",
+        imagem: {
+          rotulo: "COLABORADORES",
+          legenda: "Colaboradores com vínculo, local de trabalho, mapa e ações em massa",
+          src: "/img/ponto-funcionarios/colaboradores-ponto.png",
+        },
+        paragrafos: [
+          "Colaboradores são ativados, desativados e vinculados a locais de trabalho em massa, com histórico de inativação. Secretarias e locais guardam coordenadas e raio, com importação em lote.",
+          "São cinco perfis: administrador, RH, operador, colaborador e totem. O operador só enxerga as secretarias a que foi vinculado, e um middleware resolve o local de trabalho em cada requisição e filtra as consultas automaticamente.",
         ],
       },
     ],
     fecho:
-      "Centraliza a frequência e dá à administração um relatório por período que se sustenta sozinho.",
+      "Do registro no celular à folha entregue no WhatsApp, sem etapa manual no meio. O que sustenta isso: regra de jornada de verdade, idempotência, fila offline e auditoria de cada alteração.",
   },
 
   "viagens-frota-fiscal": {
